@@ -1,0 +1,90 @@
+/* Comment here body {
+    background-image: url("/img/minion.jpg");
+    background-repeat: no-repeat;
+    background-position: right top;
+	
+}
+*/
+
+body {
+height:100%;
+margin:0;
+padding:0;
+background:url("//df.16mb.com/background.php") no-repeat center center fixed;
+-webkit-background-size:cover;
+-moz-background-size:cover;
+-o-background-size:cover;
+background-size:cover;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+#center {
+    width: 300px;
+    margin: 0 auto;
+    font-size:small;
+}
+
+.panel-body{
+  min-height: 76px;
+}
+
+.buttons-left{
+  float:left;
+  vertical-align:middle;
+  position: fixed; 
+  padding-top:200px;
+}
+.glyphicon.glyphicon-remove-circle {
+    font-size: 50px;
+    margin: 10px;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+    cursor:pointer;
+}
+.glyphicon.glyphicon-remove-circle:hover {
+	transform:rotate(90deg);
+}
+
+#number1 {
+    font-size: 210%;
+}
+
+#number2 {
+    font-size: 100%;
+}
+
+.total {
+     width: 100%;
+}
+
+.label {
+    #color: #6aa135;
+    color: white;
+    font-size: 24px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family:Georgia, "Times New Roman", Times, serif;
+    font-style:italic;
+    float:right;
+    vertical-align:middle;
+
+}
+
+.count {
+    text-shadow: 0 -1px 0 #72a441;
+    color:#8cce5b;
+    font-weight:700;
+}
+
+#position {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
