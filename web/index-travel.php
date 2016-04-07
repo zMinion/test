@@ -229,9 +229,9 @@
 <script type="text/javascript" src="/js/scripts.js"></script>
 
         <?php
-        //include "connect.php";
-        //$maximages = $mysqli->query("SELECT max(id) as id FROM images")->fetch_object()->id; 
-        //$mysqli->close();
+        include "connect.php";
+        $maximages = $mysqli->query("SELECT max(id) as id FROM images")->fetch_object()->id; 
+        $mysqli->close();
         ?>
 
 <script> 

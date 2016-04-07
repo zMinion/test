@@ -1,7 +1,6 @@
 <?php
 
-// error_reporting(E_ERROR);
-// include 'connect.php';
+include 'connect.php';
 
 $file = $_FILES['file']['tmp_name'];
 $image = imagecreatefromjpeg($file);

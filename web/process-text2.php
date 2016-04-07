@@ -1,9 +1,9 @@
 <?php
 
-// include 'connect.php';
+include 'connect.php';
 
 // text
- $text = $_POST["text"];
+$text = $_POST["text"];
 
 $color = 1;
 if (isset($_POST['color']) && $_POST['color'] == 'white') 
@@ -45,9 +45,9 @@ if ($newwidth < 700 || $newwidth > 2048 || $newheight < 420 || $newheight > 1229
 }
 else {
 	global $color;
-	// global $mysqli;
-	// $mysqli->query("INSERT INTO images (date, departament, copyright, color) VALUES (CURDATE(), '1', 1, '$color')");
-	#$mysqli->query("INSERT INTO copyright VALUES ('$text')");
+	global $mysqli;
+	$mysqli->query("INSERT INTO images (date, departament, copyright, color) VALUES (CURDATE(), '1', 1, '$color')");
+	$mysqli->query("INSERT INTO copyright VALUES ('$text')");
 }
 // clona text
  $dims = imagettfbbox($fontsize, 0, $font, $text);

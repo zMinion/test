@@ -1,7 +1,6 @@
 <?php
 
-error_reporting(E_ERROR);
-// include 'connect.php';
+include 'connect.php';
 
 $file = $_FILES['file']['tmp_name'];
 
@@ -62,7 +61,7 @@ list($newwidth, $newheight, $type, $attr) = getimagesize($file);
 // Verifica dimeniuni design
 if ($newwidth < 700 || $newwidth > 2048 || $newheight < 420 || $newheight > 1229) { echo "<META http-equiv='refresh' content='3;URL=http://dfdesign.xyz/'><link rel='stylesheet' type='text/css' href='/css/style.css'><div id='fail'><img src='/img/fail.png' width='390px'><br><br><br><b>Error! Please check image dimensions! <b><br><br> Dimensions: min 700x420px  / max - 2048x1229px<br>Ratio 5:3 <br>Edit this image in Photoshop! </div>", date('Y-m-d H:i:s'); die(); }
 else {
-	// $mysqli->query("INSERT INTO images (date, departament, logo, source, flip) VALUES (CURDATE(), '$departament', '$chooselogo', '$mpi', '$flip')");
+	 $mysqli->query("INSERT INTO images (date, departament, logo, source, flip) VALUES (CURDATE(), '$departament', '$chooselogo', '$mpi', '$flip')");
 }
 
 // Verifica dimensiuni pentru resize
