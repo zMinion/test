@@ -248,7 +248,7 @@
                 color:'#3498db',
         });     
 </script>
-<div id=footer><div class="label"> Total images: <div id="number1" class="count"><?php //print $maximages; ?></div> </div></div></body></html>
+<div id=footer><div class="label"> Total images: <div id="number1" class="count"><?php print $maximages; ?></div> </div></div></body></html>
 
 
 
