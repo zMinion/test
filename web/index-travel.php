@@ -229,14 +229,6 @@
             </div>
 
 <script type="text/javascript" src="/js/scripts.js"></script>
-
-        <?php
-        include "connect.php";
-		$maximages = pg_query($pgsql, "SELECT id as id FROM images Order by id DESC Limit 1");
-		$maximages = pg_fetch_result($maximages, 0, 0);
-
-        ?>
-
 <script> 
         $("#rules").animatedModal({
                 modalTarget:'design-rules',
@@ -258,5 +250,9 @@
 	});
  	
 </script>
-
+<?php
+	include "connect.php";
+	$maximages = $mysqli->query("SELECT max(id) as id FROM images")->fetch_object()->id; 
+	$mysqli->close();
+?>
 <div id=footer><div class="label"> Total images: <div id="number1" class="count"><?php print $maximages; ?></div> </div></div></body></html>
