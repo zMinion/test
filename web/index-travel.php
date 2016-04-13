@@ -251,8 +251,25 @@
  	
 </script>
 <?php
+
+// Script start
+$rustart = getrusage();
+
 	include "connect.php";
 	$maximages = $mysqli->query("SELECT max(id) as id FROM images")->fetch_object()->id; 
 	$mysqli->close();
+
+// Script end
+function rutime($ru, $rus, $index) {
+    return ($ru["ru_$index.tv_sec"]*1000 + intval($ru["ru_$index.tv_usec"]/1000))
+     -  ($rus["ru_$index.tv_sec"]*1000 + intval($rus["ru_$index.tv_usec"]/1000));
+}
+
+$ru = getrusage();
+echo "This process used " . rutime($ru, $rustart, "utime") .
+    " ms for its computations\n";
+echo "It spent " . rutime($ru, $rustart, "stime") .
+    " ms in system calls\n";
+
 ?>
 <div id=footer><div class="label"> Total images: <div id="number1" class="count"><?php print $maximages; ?></div> </div></div></body></html>
