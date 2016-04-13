@@ -24,6 +24,8 @@
     <div class="buttons-left">
     <a id="rules" class="btn btn-block btn-info" href="#design-rules">Design Rules</a>
     <a id="arguments" class="btn btn-block btn-info" href="#design-arguments">Design Arguments</a>
+    <div style="height:0px;overflow:hidden"><form action="/process-mockup.php" id="textform" method="post" enctype="multipart/form-data"><input type="file" id="fileMockup" name="fileMockup" /></form></div>    
+    <a id="mockup" class="btn btn-block btn-info" href="#" onclick="chooseMockup();>Design Mockup</a>    
     </div>
 
 
@@ -230,8 +232,9 @@
 
         <?php
         include "connect.php";
-        $maximages = $mysqli->query("SELECT max(id) as id FROM images")->fetch_object()->id; 
-        $mysqli->close();
+		$maximages = pg_query($pgsql, "SELECT id as id FROM images Order by id DESC Limit 1");
+		$maximages = pg_fetch_result($maximages, 0, 0);
+
         ?>
 
 <script> 
@@ -246,13 +249,10 @@
                 animatedIn:'zoomIn',
                 animatedOut:'bounceOutDown',
                 color:'#3498db',
-        });     
+        }); 
+        function chooseMockup() {
+        	$("#fileMockup").click();
+        }
 </script>
+
 <div id=footer><div class="label"> Total images: <div id="number1" class="count"><?php print $maximages; ?></div> </div></div></body></html>
-
-
-
-
-
-
-						
