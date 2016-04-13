@@ -2,7 +2,7 @@
 
 include 'connect.php';
 
-$file = $_FILES['file']['tmp_name'];
+$file = $_FILES['fileMockup']['tmp_name'];
 $image = imagecreatefromjpeg($file);
 
 // verifica upload
@@ -11,7 +11,7 @@ list($width, $height, $type, $attr) = getimagesize($file);
 
 // verifica dimensiuni
 if (($width <> 1680) | ($height <> 450))  die ("<br><br><br><center><b>Please check the file submitted, the dimensions are invalid.</b></center>");
-$nume =  preg_replace('/.jpeg|,|.jpg/i', '', $_FILES['file']['name']) . '_mockup.jpg';
+$nume =  preg_replace('/.jpeg|,|.jpg/i', '', $_FILES['fileMockup']['name']) . '_mockup.jpg';
 
 $banner = dirname(__FILE__) . '/mockup/ocasion.jpg';
 $bannerocasion = dirname(__FILE__) . '/mockup/ocasion.png';
