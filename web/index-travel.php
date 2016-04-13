@@ -25,7 +25,7 @@
     <a id="rules" class="btn btn-block btn-info" href="#design-rules">Design Rules</a>
     <a id="arguments" class="btn btn-block btn-info" href="#design-arguments">Design Arguments</a>
     <div style="height:0px;overflow:hidden"><form action="/process-mockup.php" id="textform" method="post" enctype="multipart/form-data"><input type="file" id="fileMockup" name="fileMockup" /></form></div>    
-    <a id="mockup" class="btn btn-block btn-info" href="#" onclick="chooseMockup();>Design Mockup</a>    
+    <a id="mockup" class="btn btn-block btn-info" href="#" onclick="chooseMockup();">Design Mockup</a>    
     </div>
 
 
