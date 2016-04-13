@@ -24,7 +24,7 @@
     <div class="buttons-left">
     <a id="rules" class="btn btn-block btn-info" href="#design-rules">Design Rules</a>
     <a id="arguments" class="btn btn-block btn-info" href="#design-arguments">Design Arguments</a>
-    <div style="height:0px;overflow:hidden"><form action="/process-mockup.php" id="textform" method="post" enctype="multipart/form-data"><input type="file" id="fileMockup" name="fileMockup" /></form></div>    
+    <div style="height:0px;overflow:hidden"><form action="/process-mockup.php" id="formMockup" name="formMockup" method="post" enctype="multipart/form-data"><input type="file" id="fileMockup" name="fileMockup" /></form></div>    
     <a id="mockup" class="btn btn-block btn-info" href="#" onclick="chooseMockup();">Design Mockup</a>    
     </div>
 
@@ -253,6 +253,10 @@
         function chooseMockup() {
         	$("#fileMockup").click();
         }
+        $("#fileMockup").change(function() {
+    		$("form#formMockup").submit();
+	});
+ 	
 </script>
 
 <div id=footer><div class="label"> Total images: <div id="number1" class="count"><?php print $maximages; ?></div> </div></div></body></html>
