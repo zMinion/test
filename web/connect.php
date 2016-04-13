@@ -1,8 +1,19 @@
 <?php
-//Open a new connection to the MySQL server
-$mysqli = new mysqli('ivgz2rnl5rh7sphb.chr7pe7iynqr.eu-west-1.rds.amazonaws.com','dugt8tdb574mfzbj','ydyptuiyurxa3ww1','pv9trg9ydxga6ay3');
-//Output any connection error
+
+$url = getenv('JAWSDB_URL');
+$dbparts = parse_url($url);
+
+$hostname = $dbparts['host'];
+$username = $dbparts['user'];
+$password = $dbparts['pass'];
+$database = ltrim($dbparts['path'],'/');
+
+// Create connection
+$mysqli = new mysqli($hostname, $username, $password, $database);
+
+// Check connection
 if ($mysqli->connect_error) {
-    die('Error : ('. $mysqli->connect_errno .') '. $mysqli->connect_error);
+    die("Connection failed: " . $mysqli->connect_error);
 }
+
 ?>
