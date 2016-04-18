@@ -98,6 +98,7 @@
                                                 <option value="02.png" data-description="<span><span style='font-weight:bold;'>bold</span> <span style='color:red;'>red</span> normal</span>" value="02.png" data-image="/logo/02.jpg" selected>TMC - Best of Groupon</option>
                                                 <option value="01.png" data-image="/logo/01.jpg">xFly - Booking</option>
                                                 <option value="21.png" data-image="/logo/21.jpg">AIRC</option>
+                                                <option value="24.png" data-image="/logo/24.jpg">CenterParcs</option>                                                
                                                 <option value="22.png" data-image="/logo/22.jpg">Citotel</option>
                                                 <option value="23.png" data-image="/logo/23.jpg">Camping No 1</option>                                                
                                                 <option value="03.png" data-image="/logo/03.jpg">SEH - Inter Hotel</option>
