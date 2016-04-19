@@ -26,7 +26,13 @@ function JPGoptimiser($JPGfile, &$error = '')
 }
 
 $file = $_FILES['optimise']['tmp_name'];
-$result = JPGoptimiser($file, $error);
+$random = rand(200000, 1000000);
+$filepath = dirname(__FILE__) . '/done/' . $random . $_FILES["optimise"]["name"];
+if (move_uploaded_file($_FILES["optimise"]["tmp_name"], $filepath)) {
+      echo "<P>FILE UPLOADED TO: $filepath</P>";
+
+
+$result = JPGoptimiser($filepath, $error);
 if (false === $result) { die("{$error}\n"); }
 
 header("Content-type: image/jpeg");
@@ -38,7 +44,7 @@ header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 // Force download of image file 
 // $size = filesize($image);
 // header("Content-Length: " . $size);
-fpassthru($result);
+fpassthru($filepath);
 // Clear memory
  exit();
  
