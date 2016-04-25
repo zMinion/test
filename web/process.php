@@ -1,5 +1,6 @@
 <?php
-error_reporting(0);
+header("Content-Type: image/jpeg");
+
 include 'functions.php';
 
 $source = 0;
@@ -48,7 +49,7 @@ imagecopy($image, $logo, round(imagesx($image) / 2) - round(imagesx($logo) / 2),
 // $name = renameImage($_FILES['file']['name'], $source);
 
 // Force download image
-header("Content-Type: image/jpeg");
+
 // NOTE: Possible header injection via $basename
 // header("Content-Disposition: attachment; filename=" . $name);
 // header('Content-Transfer-Encoding: binary');
