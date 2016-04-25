@@ -7,10 +7,6 @@ $flip = 0;
 
 if (isset($_FILES['file']['tmp_name'])) 
 	$file = $_FILES['file']['tmp_name'];
-/* Work in progress 
- * if (isset($_FILES['files']['tmp_name'])) 
- *	$file = $_FILES['files']['tmp_name'];
-*/
 if (isset($_POST['chooselogo'])) 
 	$chooselogo = filter_var($_POST['chooselogo'], FILTER_SANITIZE_NUMBER_INT);
 if (isset($_POST['source'])) 
@@ -41,7 +37,7 @@ if ($dimensions["width"] < 2048)
 	$logo = resizePng($logo, $dimensions["width"], $dimensions["height"]);
 
 // Combine image with logo
-imagecopy($image, $logo, round(imagesx($image) / 2) - round(imagesx($logo) / 2), round(imagesy($image) / 2) - round(imagesy($logo) / 2), 0, 0, $dimensions["width"], $dimensions["height"]);
+imagecopy($image, $logo, round(imagesx($image) / 2) - round(imagesx($logo) / 2), round(imagesy($image) / 2) - round(imagesy($logo) / 2), 0, 0, imagesx($logo), imagesy($logo));
 
 
 // Save stats in database
