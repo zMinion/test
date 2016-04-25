@@ -76,9 +76,9 @@ if ($mysqli->connect_error) {
 	die("Connection failed: " . $mysqli->connect_error);
 }
 if ($logo)
-	$mysqli->query("INSERT INTO images (date, departament, logo, source, flip) VALUES (CURDATE(), '".mysqli_real_escape_string($departament)."', '".mysqli_real_escape_string($logo)."', '".mysqli_real_escape_string($source)."', '".mysqli_real_escape_string($flip)."')");
+	$mysqli->query("INSERT INTO images (date, departament, logo, source, flip) VALUES (CURDATE(), '".mysqli_real_escape_string($mysqli, $departament)."', '".mysqli_real_escape_string($mysqli, $logo)."', '".mysqli_real_escape_string($mysqli, $source)."', '".mysqli_real_escape_string($mysqli, $flip)."')");
 if ($copyright)
-	$mysqli->query("INSERT INTO images (date, departament, copyright, color) VALUES (CURDATE(), '".mysqli_real_escape_string($departament)."', '".mysqli_real_escape_string($copyright)."', '".mysqli_real_escape_string($color)."')");
+	$mysqli->query("INSERT INTO images (date, departament, copyright, color) VALUES (CURDATE(), '".mysqli_real_escape_string($mysqli, $departament)."', '".mysqli_real_escape_string($mysqli, $copyright)."', '".mysqli_real_escape_string($mysqli, $color)."')");
 mysqli_close($mysqli);
 }
 

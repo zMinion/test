@@ -40,6 +40,10 @@ if ($dimensions["width"] < 2048)
 // Combine image with logo
 imagecopy($image, $logo, 0, 0, 0, 0, $dimensions["width"], $dimensions["height"]);
 
+// Save stats in database
+if ($image)
+	saveStats($departament, $chooselogo, $source, $flip);
+
 // Rename the file
 $name = renameImage($_FILES['file']['name'], $source);
 
@@ -52,10 +56,6 @@ header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 
 // Compress image 95/100
 imagejpeg($image, null, 95);
-
-// Save stats in database
-if ($image)
-	saveStats($departament, $chooselogo, $source, $flip);
 
 // Clear memory
 imagedestroy($logo);
