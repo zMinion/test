@@ -83,8 +83,8 @@
 											<div class="panel panel-default">
 												<div class="panel-heading">Settings</div>
 												<div class="panel-body">
-													<label class="checkbox">  <input type='checkbox' id='source' name='source' value="stock" data-toggle="toggle" data-on="<i class='fa fa-play'></i> Source:<br> Stock  " data-off="<i class='fa fa-pause'></i> Source:<br> MPI"></label>
-													<label class="checkbox">  <input type='checkbox' id='flip' name='flip' value="flip" data-toggle="toggle" data-on="<i class='fa fa-play'></i> Flip: On  " data-off="<i class='fa fa-pause'></i> Flip: Off"></label>
+													<label class="checkbox">  <input type='checkbox' id='source' name='source' value="1" data-toggle="toggle" data-on="<i class='fa fa-play'></i> Source:<br> Stock  " data-off="<i class='fa fa-pause'></i> Source:<br> MPI"></label>
+													<label class="checkbox">  <input type='checkbox' id='flip' name='flip' value="1" data-toggle="toggle" data-on="<i class='fa fa-play'></i> Flip: On  " data-off="<i class='fa fa-pause'></i> Flip: Off"></label>
 												</div>
 											</div>		
 						
