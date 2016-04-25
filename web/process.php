@@ -2,6 +2,9 @@
 error_reporting(E_ALL);
 include 'functions.php';
 
+$source = 0;
+$flip = 0;
+
 if (isset($_FILES['file']['tmp_name'])) 
 	$file = $_FILES['file']['tmp_name'];
 /* Work in progress 
@@ -48,7 +51,7 @@ if ($image)
 $name = renameImage($_FILES['file']['name'], $source);
 
 // Force download image
-header("Content-type: image/jpeg");
+// header("Content-type: image/jpeg");
 // NOTE: Possible header injection via $basename
 header("Content-Disposition: attachment; filename=" . $name);
 header('Content-Transfer-Encoding: binary');
