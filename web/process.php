@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(E_ALL);
 include 'functions.php';
 
 if (isset($_FILES['file']['tmp_name'])) 
