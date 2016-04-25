@@ -2,6 +2,7 @@
 
 // Verifica dimeniuni design
 function checkDimensions($image, $minwidth, $maxwidth, $minheight, $maxheight) {
+	$dimensions = array();
 	$dimensions["width"] = imagesx($image);
 	$dimensions["height"] = imagesy($image);
 	
