@@ -36,7 +36,7 @@ if (!$image) die ("<br><br><br><center><b>Please check the file submitted, the f
 	$logo = resizePng($logo, $dimensions[0], $dimensions[1]);
 
 // Combine image with logo
-imagecopy($image, $logo, 0, 0, 0, 0, 2048, 1229);
+imagecopy($image, $logo, 0, 0, 0, 0, $dimensions[0], $dimensions[1]);
 
 
 // Save stats in database

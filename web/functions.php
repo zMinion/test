@@ -4,7 +4,7 @@
 function checkDimensions($image, $minwidth, $maxwidth, $minheight, $maxheight) {
 	$width = imagesx($image);
 	$height = imagesy($image);
-	if ($minwidth < $width || $maxwidth > $width || $minheight < $height || $maxheight > $height)
+	if ($width < $minwidth || $width > $maxwidth || $height < $minheight || $height > $maxheight)
 		die("Eroare dimensiuni");
 	return array($width, $height);
 }
