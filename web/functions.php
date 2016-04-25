@@ -4,8 +4,11 @@
 function checkDimensions($image, $minwidth, $maxwidth, $minheight, $maxheight) {
 	$dimensions["width"] = imagesx($image);
 	$dimensions["height"] = imagesy($image);
-	if ($minwidth < $dimensions["width"] || $maxwidth > $dimensions["width"] || $minheight < $dimensions["height"] || $maxheight > $dimensions["height"]) 
-		return $dimensions;
+	
+	if ($minwidth < $dimensions["width"] || $maxwidth > $dimensions["width"] || $minheight < $dimensions["height"] || $maxheight > $dimensions["height"])
+		die("Eroare dimensiuni");
+	
+	return $dimensions;
 }
 
 // Flip la fundal
