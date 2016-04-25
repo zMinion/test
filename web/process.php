@@ -1,5 +1,7 @@
 <?php
 
+include 'functions.php';
+
 if (isset($_FILES['file']['tmp_name'])) 
 	$file = $_FILES['file']['tmp_name'];
 /* Work in progress 
@@ -7,13 +9,13 @@ if (isset($_FILES['file']['tmp_name']))
  *	$file = $_FILES['files']['tmp_name'];
 */
 if (isset($_POST['chooselogo'])) 
-	$chooselogo = $_POST['chooselogo'];
+	$chooselogo = filter_var($_POST['chooselogo'], FILTER_SANITIZE_NUMBER_INT);
 if (isset($_POST['source'])) 
-	$source = $_POST['source'];
+	$source = filter_var($_POST['source'], FILTER_SANITIZE_NUMBER_INT);
 if (isset($_POST['departament'])) 
-	$departament = $_POST['departament'];
+	$departament = filter_var($_POST['departament'], FILTER_SANITIZE_NUMBER_INT);
 if (isset($_POST['flip'])) 
-	$flip = $_POST['flip'];
+	$flip = filter_var($_POST['flip'], FILTER_SANITIZE_NUMBER_INT);
 
 $logo = dirname(__FILE__) . '/logo/' . $chooselogo . '.png';
 	
@@ -24,7 +26,7 @@ $logo = imagecreatefrompng($logo);
 $image = imagecreatefromjpeg($file);
 if (!$image) die ("<br><br><br><center><b>Please check the file submitted, the format is invalid.</b></center>");
 
-// Check width and height
+// Check width(700->2028px) and height(420->1229px)
 $dimensions = checkDimensions($image, 700, 2048, 420, 1229);
 
 // Flip image if required (horizontal)
