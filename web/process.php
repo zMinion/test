@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ALL);
+error_reporting(0);
 include 'functions.php';
 
 $source = 0;
@@ -41,11 +41,11 @@ imagecopy($image, $logo, round(imagesx($image) / 2) - round(imagesx($logo) / 2),
 
 
 // Save stats in database
-if ($image)
-	saveStats($departament, $chooselogo, $source, $flip);
+//if ($image)
+//	saveStats($departament, $chooselogo, $source, $flip);
 
 // Rename the file
-$name = renameImage($_FILES['file']['name'], $source);
+// $name = renameImage($_FILES['file']['name'], $source);
 
 // Force download image
 header("Content-type: image/jpeg");
