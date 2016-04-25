@@ -51,7 +51,7 @@ if ($image)
 $name = renameImage($_FILES['file']['name'], $source);
 
 // Force download image
-// header("Content-type: image/jpeg");
+header("Content-type: image/jpeg");
 // NOTE: Possible header injection via $basename
 // header("Content-Disposition: attachment; filename=" . $name);
 // header('Content-Transfer-Encoding: binary');
