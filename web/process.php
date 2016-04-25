@@ -31,7 +31,7 @@ if (!$image) die ("<br><br><br><center><b>Please check the file submitted, the f
 
 // Check width(700->2028px) and height(420->1229px)
 $dimensions = checkDimensions($image, 700, 2048, 420, 1229);
-
+print_r($dimensions);
 // Flip image if required (horizontal)
 if ($flip)
 	$image = flipImage($image, $dimensions["width"], $dimensions["height"], false, true);
