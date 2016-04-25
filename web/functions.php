@@ -2,14 +2,11 @@
 
 // Verifica dimeniuni design
 function checkDimensions($image, $minwidth, $maxwidth, $minheight, $maxheight) {
-	$dimensions = array();
-	$dimensions["width"] = imagesx($image);
-	$dimensions["height"] = imagesy($image);
-	
-	if ($minwidth < $dimensions["width"] || $maxwidth > $dimensions["width"] || $minheight < $dimensions["height"] || $maxheight > $dimensions["height"])
+	$width = imagesx($image);
+	$height = imagesy($image);
+	if ($minwidth < $width || $maxwidth > $width || $minheight < $height || $maxheight > $height)
 		die("Eroare dimensiuni");
-	
-	return $dimensions;
+	return array($width, $height);
 }
 
 // Flip la fundal

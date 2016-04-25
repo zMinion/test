@@ -29,11 +29,11 @@ if (!$image) die ("<br><br><br><center><b>Please check the file submitted, the f
 
 // Flip image if required (horizontal)
  if ($flip)
-	$image = flipImage($image, $dimensions["width"], $dimensions["height"], false, true);
+	$image = flipImage($image, $dimensions[0], $dimensions[1], false, true);
 
 //  Resize if needed
- if ($dimensions["width"] < 2048)
-	$logo = resizePng($logo, $dimensions["width"], $dimensions["height"]);
+ if ($dimensions[0] < 2048)
+	$logo = resizePng($logo, $dimensions[0], $dimensions[1]);
 
 // Combine image with logo
 imagecopy($image, $logo, 0, 0, 0, 0, 2048, 1229);
