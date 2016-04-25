@@ -81,6 +81,4 @@ if ($copyright)
 	$mysqli->query("INSERT INTO images (date, departament, copyright, color) VALUES (CURDATE(), '".mysqli_real_escape_string($mysqli, $departament)."', '".mysqli_real_escape_string($mysqli, $copyright)."', '".mysqli_real_escape_string($mysqli, $color)."')");
 mysqli_close($mysqli);
 }
-
 ?>
-  
