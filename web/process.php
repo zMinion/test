@@ -25,18 +25,18 @@ $image = imagecreatefromjpeg($file);
 if (!$image) die ("<br><br><br><center><b>Please check the file submitted, the format is invalid.</b></center>");
 
 // Check width(700->2028px) and height(420->1229px)
-$dimensions = checkDimensions($image, 700, 2048, 420, 1229);
+// $dimensions = checkDimensions($image, 700, 2048, 420, 1229);
 
 // Flip image if required (horizontal)
-if ($flip)
-	$image = flipImage($image, $dimensions["width"], $dimensions["height"], false, true);
+// if ($flip)
+//	$image = flipImage($image, $dimensions["width"], $dimensions["height"], false, true);
 
 //  Resize if needed
-if ($dimensions["width"] < 2048)
-	$logo = resizePng($logo, $dimensions["width"], $dimensions["height"]);
+// if ($dimensions["width"] < 2048)
+//	$logo = resizePng($logo, $dimensions["width"], $dimensions["height"]);
 
 // Combine image with logo
-imagecopy($image, $logo, round(imagesx($image) / 2) - round(imagesx($logo) / 2), round(imagesy($image) / 2) - round(imagesy($logo) / 2), 0, 0, imagesx($logo), imagesy($logo));
+imagecopy($image, $logo, 0, 0, 0, 0, 2048, 1229);
 
 
 // Save stats in database
@@ -44,7 +44,7 @@ imagecopy($image, $logo, round(imagesx($image) / 2) - round(imagesx($logo) / 2),
 //	saveStats($departament, $chooselogo, $source, $flip);
 
 // Rename the file
-// $name = renameImage($_FILES['file']['name'], $source);
+$name = renameImage($_FILES['file']['name'], $source);
 
 // Force download image
 header("Content-Type: image/jpeg");
