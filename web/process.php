@@ -53,9 +53,9 @@ $name = renameImage($_FILES['file']['name'], $source);
 // Force download image
 // header("Content-type: image/jpeg");
 // NOTE: Possible header injection via $basename
-header("Content-Disposition: attachment; filename=" . $name);
-header('Content-Transfer-Encoding: binary');
-header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+// header("Content-Disposition: attachment; filename=" . $name);
+// header('Content-Transfer-Encoding: binary');
+// header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 
 // Compress image 95/100
 imagejpeg($image, null, 95);
