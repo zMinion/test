@@ -3,47 +3,49 @@
 // Verifica dimeniuni design
 function checkDimensions($image, $minwidth, $maxwidth, $minheight, $maxheight) {
 	$dimensions["width"] = imagesx($image);
-    $dimensions["height"] = imagesy($image);
+	$dimensions["height"] = imagesy($image);
 	if ($minwidth < $dimensions["width"] || $maxwidth > $dimensions["width"] || $minheight < $dimensions["height"] || $maxheight > $dimensions["height"]) 
 		return $dimensions;
 }
 
 // Flip la fundal
 function flipImage($image, $width, $height, $vertical, $horizontal) {
-    if (!$vertical && !$horizontal) return $image;
-    $flipped = imagecreatetruecolor($width, $height);
-    if ($vertical) {
-      for ($y=0; $y<$height; $y++) {
-        imagecopy($flipped, $image, 0, $y, 0, $height - $y - 1, $width, 1);
-      }
-    }
-    if ($horizontal) {
-      if ($vertical) {
-        $image = $flipped;
-        $flipped = imagecreatetruecolor($width, $height);
-      }
-      for ($x=0; $x<$width; $x++) {
-        imagecopy($flipped, $image, $x, 0, $width - $x - 1, 0, 1, $height);
-      }
-    }
-    return $flipped;
+	if (!$vertical && !$horizontal) return $image;
+	$flipped = imagecreatetruecolor($width, $height);
+	if ($vertical) {
+	  for ($y=0; $y<$height; $y++) {
+		imagecopy($flipped, $image, 0, $y, 0, $height - $y - 1, $width, 1);
+	  }
+	}
+	if ($horizontal) {
+	  if ($vertical) {
+		$image = $flipped;
+		$flipped = imagecreatetruecolor($width, $height);
+	  }
+	  for ($x=0; $x<$width; $x++) {
+		imagecopy($flipped, $image, $x, 0, $width - $x - 1, 0, 1, $height);
+	  }
+	}
+	return $flipped;
 }
 
 // Resize png
-function resizePng($image, $width, $height, $dst_width, $dst_height) {
-    $newImg = imagecreatetruecolor($dst_width, $dst_height);
-    imagealphablending($newImg, false);
-    imagesavealpha($newImg, true);
-    $transparent = imagecolorallocatealpha($newImg, 255, 255, 255, 127);
-    imagefilledrectangle($newImg, 0, 0, $width, $height, $transparent);
-    imagecopyresampled($newImg, $image, 0, 0, 0, 0, $dst_width, $dst_height, $width, $height);
-    return $newImg;
+function resizePng($logo, $dst_width, $dst_height) {
+	$width = imagesx($logo);
+	$height = imagesy($logo);
+	$newlogo = imagecreatetruecolor($dst_width, $dst_height);
+	imagealphablending($newlogo, false);
+	imagesavealpha($newlogo, true);
+	$transparent = imagecolorallocatealpha($newlogo, 255, 255, 255, 127);
+	imagefilledrectangle($newlogo, 0, 0, $width, $height, $transparent);
+	imagecopyresampled($newlogo, $logo, 0, 0, 0, 0, $dst_width, $dst_height, $width, $height);
+	return $newlogo;
 }
 
 // Nume Poze: 0 - logo / 1 - getty / 2 - mockup
 function renameImage($name, $source) {
-	if ($source = 1) 
-		$name =  preg_replace('/.jpeg|,|.jpg/i', '', $name . '_badged.jpg';
+ if ($source = 1) 
+	$name =  preg_replace('/.jpeg|,|.jpg/i', '', $name . '_badged.jpg';
 	else if ($source = 2)
 		$name =  preg_replace('/.jpeg|,|.jpg/i', '', $name . '_mockup.jpg';
 	else
@@ -51,11 +53,34 @@ function renameImage($name, $source) {
 		
 	return $name;
 }
-// work in progress
-function saveStats($departament, $logo, $source, $flip=0, $copyright=0, $color) {
-include 'connect.php';
-$mysqli->query("INSERT INTO images (date, departament, logo, source, flip) VALUES (CURDATE(), '$departament', '$logo', '$source', '$flip')");
+
+/** Save stats
+*   departament 1 - travel / 2 - goods
+*   source 0 - logo / 1 - getty / 2 - mockup
+*   flip 0 - false / 1 - true
+*   copyright 0 - false / 1 - true
+*   color 0 - black / 1 - white
+*/ 
+
+function saveStats($departament, $logo=null, $source=0, $flip=0, $copyright=0, $color=0) {
+$url = getenv('JAWSDB_URL');
+$dbparts = parse_url($url);
+$hostname = $dbparts['host'];
+$username = $dbparts['user'];
+$password = $dbparts['pass'];
+$database = ltrim($dbparts['path'],'/');
+// Create connection
+$mysqli = new mysqli($hostname, $username, $password, $database);
+// Check connection
+if ($mysqli->connect_error) {
+	die("Connection failed: " . $mysqli->connect_error);
+}
+if ($logo)
+	$mysqli->query("INSERT INTO images (date, departament, logo, source, flip) VALUES (CURDATE(), '".mysql_real_escape_string($departament)."', '".mysql_real_escape_string($logo)."', '".mysql_real_escape_string($source)."', '".mysql_real_escape_string($flip)."')");
+if ($copyright)
+	$mysqli->query("INSERT INTO images (date, departament, copyright, color) VALUES (CURDATE(), '".mysql_real_escape_string($departament)."', '".mysql_real_escape_string($copyright)."', '".mysql_real_escape_string($color)."')");
 mysqli_close($mysqli);
 }
 
 ?>
+  
