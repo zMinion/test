@@ -31,7 +31,7 @@ if (!$image) die ("<br><br><br><center><b>Please check the file submitted, the f
 
 // Check width(700->2028px) and height(420->1229px)
 $dimensions = checkDimensions($image, 700, 2048, 420, 1229);
-print_r($dimensions);
+
 // Flip image if required (horizontal)
 if ($flip)
 	$image = flipImage($image, $dimensions["width"], $dimensions["height"], false, true);
@@ -41,7 +41,8 @@ if ($dimensions["width"] < 2048)
 	$logo = resizePng($logo, $dimensions["width"], $dimensions["height"]);
 
 // Combine image with logo
-imagecopy($image, $logo, 0, 0, 0, 0, $dimensions["width"], $dimensions["height"]);
+imagecopy($image, $logo, round(imagesx($image) / 2) - round(imagesx($logo) / 2), round(imagesy($image) / 2) - round(imagesy($logo) / 2), 0, 0, $dimensions["width"], $dimensions["height"]);
+
 
 // Save stats in database
 if ($image)
@@ -55,7 +56,7 @@ header("Content-type: image/jpeg");
 // NOTE: Possible header injection via $basename
 // header("Content-Disposition: attachment; filename=" . $name);
 // header('Content-Transfer-Encoding: binary');
-// header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 
 // Compress image 95/100
 imagejpeg($image, null, 95);
