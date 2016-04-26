@@ -115,7 +115,7 @@ else { }
 		// Force download image
 		header("Content-Type: image/jpeg");
 		// NOTE: Possible header injection via $basename
-		header("Content-Disposition: attachment; filename=" . $name);
+		header("Content-Disposition: attachment; filename=" . $_FILES['file']['name'][$index]);
 		header('Content-Transfer-Encoding: binary');
 		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 		
