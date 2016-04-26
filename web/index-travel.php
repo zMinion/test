@@ -161,7 +161,7 @@
 
 
 
-<form action="/process-text2.php" id="textform" method="post" enctype="multipart/form-data">
+<form action="/process.php" id="textform" method="post" enctype="multipart/form-data">
             <div class="col-md-5 col-md-offset-2">
                 <div class="well-lg">
                     <div class="panel panel-primary">
