@@ -15,7 +15,8 @@ $maxheight = 1229;
 
 if (isset($_POST['chooselogo'])) {
 	
-	$chooselogo = filter_var($_POST['chooselogo'], FILTER_SANITIZE_NUMBER_INT);	
+//	$chooselogo = filter_var($_POST['chooselogo'], FILTER_SANITIZE_NUMBER_INT);	
+	$chooselogo = $_POST['chooselogo'];		
 	if (isset($_FILES['file']['tmp_name']))
 		$file = $_FILES['file']['tmp_name'];	
 	if (isset($_POST['source']))
