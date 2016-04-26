@@ -45,9 +45,9 @@ function resizePng($logo, $dst_width, $dst_height) {
 
 // Nume Poze: 0 - logo / 1 - getty / 2 - mockup
 function renameImage($name, $source) {
-	if ($source == 1) 
+	if ($source === 1) 
 		$name =  preg_replace('/.jpeg|,|.jpg/i', '', $name) . '_badged.jpg';
-	else if ($source == 2)
+	else if ($source === 2)
 		$name =  preg_replace('/.jpeg|,|.jpg/i', '', $name) . '_mockup.jpg';
 	else
 		$name =  preg_replace('/.jpeg|,|.jpg/i', '', $name) . '_logo.jpg';	
