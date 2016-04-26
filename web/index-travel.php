@@ -251,9 +251,5 @@
 	});
  	
 </script>
-<?php
-	include "connect.php";
-	$maximages = $mysqli->query("SELECT max(id) as id FROM images")->fetch_object()->id; 
-	$mysqli->close();
-?>
-<div id=footer><div class="label"> Total images: <div id="number1" class="count"><?php print $maximages; ?></div> </div></div></body></html>
+
+<div id=footer><div class="label"> Total images: <div id="number1" class="count"><?php require "functions.php"; print showStats(); ?></div> </div></div></body></html>

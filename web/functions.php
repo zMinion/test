@@ -81,6 +81,25 @@ if ($copyright)
 mysqli_close($mysqli);
 }
 
+function showStats() {
+	$url = getenv('JAWSDB_URL');
+	$dbparts = parse_url($url);
+	$hostname = $dbparts['host'];
+	$username = $dbparts['user'];
+	$password = $dbparts['pass'];
+	$database = ltrim($dbparts['path'],'/');
+	// Create connection
+	$mysqli = new mysqli($hostname, $username, $password, $database);
+	// Check connection
+	if ($mysqli->connect_error) {
+		die("Connection failed: " . $mysqli->connect_error);
+	}
+	$maximages = $mysqli->query("SELECT max(id) as id FROM images")->fetch_object()->id; 
+	$mysqli->close();
+	
+	return $maximages;
+}
+
 // create text
 function createText($copyright, $text, $color, $font, $fontsize, $maxwidth, $maxheight){
 	$dims = imagettfbbox($fontsize, 0, $font, $text);
