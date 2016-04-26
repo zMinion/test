@@ -58,14 +58,14 @@
                                                 <div class="panel-heading">Select a logo</div>
                                                 <div class="panel-body">
                                                     <select id="chooselogo" name="chooselogo">
-                                                        <option value="g04-left" data-image="/logo/g04-left.jpg">UK/IE - Video available - left</option>
-                                                        <option value="g05-left" data-image="/logo/g05-left.jpg" selected>FR - Video disponible - left</option>
-                                                        <option value="g06" data-image="/logo/g06.jpg">Black Friday</option>
-                                                        <option value="g01" data-image="/logo/g01.jpg">Price drop FR</option>
-                                                        <option value="g02" data-image="/logo/g02.jpg">Price drop UK</option>
-                                                        <option value="g03" data-image="/logo/g03.jpg">Price drop NL/BE</option>
-                                                        <option value="g04-right" data-image="/logo/g04-right.jpg">UK/IE - Video available - right</option>
-                                                        <option value="g05-right" data-image="/logo/g05-right.jpg">FR - Video disponible - right</option>
+                                                        <option value="105" data-image="/logo/105.jpg">UK/IE - Video available - left</option>
+                                                        <option value="107" data-image="/logo/107.jpg" selected>FR - Video disponible - left</option>
+                                                        <option value="109" data-image="/logo/109.jpg">Black Friday</option>
+                                                        <option value="101" data-image="/logo/101.jpg">Price drop FR</option>
+                                                        <option value="102" data-image="/logo/102.jpg">Price drop UK</option>
+                                                        <option value="103" data-image="/logo/103.jpg">Price drop NL/BE</option>
+                                                        <option value="106" data-image="/logo/106.jpg">UK/IE - Video available - right</option>
+                                                        <option value="108" data-image="/logo/108.jpg">FR - Video disponible - right</option>
                                                     </select>
                                                 </div>
 
@@ -91,12 +91,6 @@
     </div>
 
     <script type="text/javascript" src="/js/scripts.js"></script>
-
-        <?php
-        include "connect.php";
-        $maximages = $mysqli->query("SELECT max(id) as id FROM images")->fetch_object()->id; 
-        $mysqli->close();
-        ?>
 		
-<div id=footer><div class="label"> Total images: <div id="number1" class="count"><?php print $maximages; ?></div> </div></div></body></html>
+<div id=footer><div class="label"> Total images: <div id="number1" class="count"><?php require "functions.php"; print showStats(); ?></div> </div></div></body></html>
 

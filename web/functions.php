@@ -82,7 +82,6 @@ mysqli_close($mysqli);
 }
 
 function showStats() {
-	$url = getenv('JAWSDB_URL');
 	$dbparts = parse_url($url);
 	$hostname = $dbparts['host'];
 	$username = $dbparts['user'];

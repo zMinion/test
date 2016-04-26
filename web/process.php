@@ -1,22 +1,10 @@
 <?php
+include 'config.php';
 include 'functions.php';
-
-$source = 0;
-$flip = 0;
-
-$font = 'tahomabd.ttf';
-$fontsize = 26;
-
-$minwidth = 700;
-$maxwidth = 2048;
-$minheight = 420;
-$maxheight = 1229;
-
 
 if (isset($_POST['chooselogo'])) {
 	
-//	$chooselogo = filter_var($_POST['chooselogo'], FILTER_SANITIZE_NUMBER_INT);	
-	$chooselogo = $_POST['chooselogo'];		
+	$chooselogo = filter_var($_POST['chooselogo'], FILTER_SANITIZE_NUMBER_INT);		
 	if (isset($_FILES['file']['tmp_name']))
 		$file = $_FILES['file']['tmp_name'];	
 	if (isset($_POST['source']))
