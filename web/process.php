@@ -43,13 +43,14 @@ imagecopy($image, $logo, 0, 0, 0, 0, $dimensions[0], $dimensions[1]);
 if ($image)
 	saveStats($departament, $chooselogo, $source, $flip);
 
+print $source;
 // Rename the file
 $name = renameImage($_FILES['file']['name'], $source);
 
 // Force download image
 header("Content-Type: image/jpeg");
 // NOTE: Possible header injection via $basename
-header("Content-Disposition: attachment; filename=" . $name);
+//header("Content-Disposition: attachment; filename=" . $name);
 header('Content-Transfer-Encoding: binary');
 header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 
