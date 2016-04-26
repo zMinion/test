@@ -100,7 +100,7 @@ if (count($files) > 1) {
 
 	// Save stats in database
 	if ($image)
-		saveStats($departament, 0, 0, 0, $copyright, $color);
+		saveStats($departament, 0, 0, 0, 1, $color);
 
 	ob_start(); 
 	// Compress image 97/100
@@ -137,7 +137,7 @@ else {
 		
 		// Save stats in database
 		if ($image)
-			saveStats($departament, 0, 0, 0, $copyright, $color);
+			saveStats($departament, 0, 0, 0, 1, $color);
 		
 		// Force download image
 		header("Content-Type: image/jpeg");
