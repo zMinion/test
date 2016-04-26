@@ -50,15 +50,9 @@ header("Content-Disposition: attachment; filename=" . $name);
 header('Content-Transfer-Encoding: binary');
 header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 
-// Compress image 95/100
-imagejpeg($image, null, 95);
+// Compress image 97/100
+imagejpeg($image, null, 97);
 }
-
-
-
-
-
-
 
 
 
@@ -94,7 +88,9 @@ if (count($files) > 1) {
 	// Check width(700->2028px) and height(420->1229px)
 	$dimensions = array(imagesx($image),imagesy($image));
 	
-	if ($dimensions[0] < $minwidth || $dimensions[0] > $maxwidth || $dimensions[1] < $minheight || $dimensions[1] > $maxheight) {
+	if ($dimensions[0] < $minwidth || $dimensions[0] > $maxwidth || $dimensions[1] < $minheight || $dimensions[1] > $maxheight) { 
+	//skip if image is small
+	} else {
 	//  Resize if needed
 	if ($dimensions[0] < $maxwidth)
 	$textimage = resizePng($textimage, $dimensions[0], $dimensions[1]);
@@ -150,8 +146,8 @@ else {
 		header('Content-Transfer-Encoding: binary');
 		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 		
-		// Compress image 95/100
-		imagejpeg($image, null, 95);			
+		// Compress image 97/100
+		imagejpeg($image, null, 97);			
 	}
 	
 }
