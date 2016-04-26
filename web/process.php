@@ -83,8 +83,9 @@ if (isset($_POST['text'])) {
 	if (isset($_POST['color']))
 		$color = filter_var($_POST['color'], FILTER_SANITIZE_NUMBER_INT);
 	if (isset($_POST['departament']))
-		$departament = filter_var($_POST['departament'], FILTER_SANITIZE_NUMBER_INT);	
+		$departament = filter_var($_POST['departament'], FILTER_SANITIZE_NUMBER_INT);
 	
+	$names = $_FILES['files']['name'];	
 	$textimage = createText($copyright, $text, $color, $font, $fontsize, $maxwidth, $maxheight);
 	
 /**
@@ -96,7 +97,6 @@ else { }
 	foreach($files as $index => $file) {
 		// Read file
 		$image = imagecreatefromjpeg($files[$index]);
-		$name = $_FILES['files']['name'][$index];
 		
 		if (!$image) die ("<br><br><br><center><b>Please check the file submitted, the format is invalid.</b></center>");
 		
@@ -117,7 +117,7 @@ else { }
 		// Force download image
 		header("Content-Type: image/jpeg");
 		// NOTE: Possible header injection via $basename
-		header("Content-Disposition: attachment; filename=" . $name);
+		header("Content-Disposition: attachment; filename=" . $names[$index]);
 		header('Content-Transfer-Encoding: binary');
 		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 		
