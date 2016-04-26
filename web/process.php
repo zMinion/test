@@ -77,16 +77,56 @@ if (isset($_POST['text'])) {
 	$names = $_FILES['files']['name'];	
 	$textimage = createText($copyright, $text, $color, $font, $fontsize, $maxwidth, $maxheight);
 	
-/**
+
 if (count($files) > 1) {
+
+	// Prepare ZipFile
+	$zipfile = tempnam("tmp", "zip");
+	$zip = new ZipArchive();
+	$zip->open($zipfile, ZipArchive::OVERWRITE);
+
+	foreach($files as $index => $file) {
+	// Read file
+	$image = imagecreatefromjpeg($files[$index]);
+	
+	if (!$image) die ("<br><br><br><center><b>Please check the file submitted, the format is invalid.</b></center>");
+	
+	// Check width(700->2028px) and height(420->1229px)
+	$dimensions = checkDimensions($image, $minwidth, $maxwidth, $minheight, $maxheight);
+	
+	//  Resize if needed
+	if ($dimensions[0] < $maxwidth)
+	$textimage = resizePng($textimage, $dimensions[0], $dimensions[1]);
+	
+	// Combine image with logo
+	imagecopy($image, $textimage, 0, 0, 0, 0, $dimensions[0], $dimensions[1]);
+
+	// Save stats in database
+	if ($image)
+		saveStats($departament, 0, 0, 0, $copyright, $color);
+
+	ob_start(); 
+	// Compress image 97/100
+	imagejpeg($image, null, 97);
+	imagedestroy($image); 
+	$i = ob_get_clean();
+	
+	// Stuff with content
+	$zip->addFromString($names[$index], $i);
+	}
+	
+
+	
+	// Close and send to users
+	$zip->close();
+	header('Content-Type: application/zip');
+	header('Content-Disposition: attachment; filename="images.zip"');
+	readfile($zipfile);
+	unlink($zipfile); 
 	
 }
-else { }
-*/
-	foreach($files as $index => $file) {
-		// Read file
-		$image = imagecreatefromjpeg($files[$index]);
-		
+else {
+		$image = imagecreatefromjpeg($files[0]);
 		if (!$image) die ("<br><br><br><center><b>Please check the file submitted, the format is invalid.</b></center>");
 		
 		// Check width(700->2028px) and height(420->1229px)
@@ -102,11 +142,11 @@ else { }
 		// Save stats in database
 		if ($image)
 			saveStats($departament, 0, 0, 0, $copyright, $color);
-			
+		
 		// Force download image
 		header("Content-Type: image/jpeg");
 		// NOTE: Possible header injection via $basename
-		header("Content-Disposition: attachment; filename=" . $names[$index]);
+		header("Content-Disposition: attachment; filename=" . $names[0]);
 		header('Content-Transfer-Encoding: binary');
 		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 		
