@@ -189,7 +189,7 @@
 												<div class="panel-heading">Font Color</div>
 												<div class="panel-body">
 
-													<input id='color' name='color' type="checkbox" checked  value="white" data-toggle="toggle" data-on="<i class='fa fa-play'></i> White" data-off="<i class='fa fa-pause'></i> Black">
+													<input id='color' name='color' type="checkbox" checked  value="1" data-toggle="toggle" data-on="<i class='fa fa-play'></i> White" data-off="<i class='fa fa-pause'></i> Black">
 
 
 												</div>
