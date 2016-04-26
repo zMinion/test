@@ -96,7 +96,7 @@ else { }
 	foreach($files as $index => $file) {
 		// Read file
 		$image = imagecreatefromjpeg($files[$index]);
-		$name = $_FILES['file']['name'][$index];
+		$name = $_FILES['files']['name'][$index];
 		
 		if (!$image) die ("<br><br><br><center><b>Please check the file submitted, the format is invalid.</b></center>");
 		
