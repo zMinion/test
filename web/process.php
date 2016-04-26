@@ -96,6 +96,8 @@ else { }
 	foreach($files as $index => $file) {
 		// Read file
 		$image = imagecreatefromjpeg($files[$index]);
+		$name = $_FILES['file']['name'][$index];
+		
 		if (!$image) die ("<br><br><br><center><b>Please check the file submitted, the format is invalid.</b></center>");
 		
 		// Check width(700->2028px) and height(420->1229px)
@@ -115,7 +117,7 @@ else { }
 		// Force download image
 		header("Content-Type: image/jpeg");
 		// NOTE: Possible header injection via $basename
-		header("Content-Disposition: attachment; filename=" . $_FILES['file']['name'][$index]);
+		header("Content-Disposition: attachment; filename=" . $name);
 		header('Content-Transfer-Encoding: binary');
 		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 		
