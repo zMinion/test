@@ -13,19 +13,15 @@ $minheight = 420;
 $maxheight = 1229;
 
 
-if (isset($_POST['chooselogo']))
-	$chooselogo = filter_var($_POST['chooselogo'], FILTER_SANITIZE_NUMBER_INT);
-if (isset($_POST['text']))
-	$text = $_POST["text"];
-if (isset($_POST['departament']))
-	$departament = filter_var($_POST['departament'], FILTER_SANITIZE_NUMBER_INT);
-
-
-if ($chooselogo) {
+if (isset($_POST['chooselogo'])) {
+	
+	$chooselogo = filter_var($_POST['chooselogo'], FILTER_SANITIZE_NUMBER_INT);	
 	if (isset($_FILES['file']['tmp_name']))
 		$file = $_FILES['file']['tmp_name'];	
 	if (isset($_POST['source']))
 		$source = filter_var($_POST['source'], FILTER_SANITIZE_NUMBER_INT);
+	if (isset($_POST['departament']))
+		$departament = filter_var($_POST['departament'], FILTER_SANITIZE_NUMBER_INT);	
 	if (isset($_POST['flip']))
 		$flip = filter_var($_POST['flip'], FILTER_SANITIZE_NUMBER_INT);	
 
@@ -79,19 +75,24 @@ imagejpeg($image, null, 95);
 
 
 
-if ($text) {
+if (isset($_POST['text'])) {
+	
+		$text = $_POST["text"];
 	if (isset($_FILES['files']['tmp_name']))
 		$files = $_FILES['files']['tmp_name'];
 	if (isset($_POST['color']))
 		$color = filter_var($_POST['color'], FILTER_SANITIZE_NUMBER_INT);
+	if (isset($_POST['departament']))
+		$departament = filter_var($_POST['departament'], FILTER_SANITIZE_NUMBER_INT);	
 	
 	$textimage = createText($copyright, $text, $color, $font, $fontsize, $maxwidth, $maxheight);
 	
+/**
 if (count($files) > 1) {
 	
 }
 else { }
-
+*/
 	foreach($files as $index => $file) {
 		// Read file
 		$image = imagecreatefromjpeg($files[$index]);
