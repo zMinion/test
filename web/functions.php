@@ -80,4 +80,27 @@ if ($copyright)
 	$mysqli->query("INSERT INTO images (date, departament, copyright, color) VALUES (CURDATE(), '".mysqli_real_escape_string($mysqli, $departament)."', '".mysqli_real_escape_string($mysqli, $copyright)."', '".mysqli_real_escape_string($mysqli, $color)."')");
 mysqli_close($mysqli);
 }
+
+// create text
+function createText($copyright, $text, $color, $font, $fontsize, $maxwidth, $maxheight){
+	$dims = imagettfbbox($fontsize, 0, $font, $text);
+	$bbox_height = $dims[3] - $dims[5]; 
+	$bbox_width = $dims[4] - $dims[0]; 
+	$copyright = imagecreatetruecolor($maxwidth, $maxheight);
+	imagealphablending($copyright, false);
+	imagesavealpha($copyright, true);
+	// background color
+	$bgcolor = imagecolorallocatealpha($copyright, 255,255,255, 127);
+	// font color
+	if ($color) 
+		$fontcolor = imagecolorallocate($copyright, 255, 255, 255);
+	else
+		$fontcolor = imagecolorallocate($copyright, 0, 0, 0);
+	imagefilledrectangle($copyright, 0, 0, $maxwidth, $maxheight, $bgcolor);
+	$x = $maxwidth - $bbox_width - 90; 
+	$y = $maxheight - $bbox_height + $fontsize - 50;
+	imagettftext($copyright, $fontsize, 0, $x, $y , $fontcolor, $font, chr(169) . ' ' . $text);
+
+	return $copyright;
+}
 ?>
