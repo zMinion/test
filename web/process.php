@@ -110,7 +110,7 @@ else { }
 		
 		// Save stats in database
 		if ($image)
-			saveStats($departament, 0, 0, 0, $copyright, $color)
+			saveStats($departament, 0, 0, 0, $copyright, $color);
 			
 		// Force download image
 		header("Content-Type: image/jpeg");
