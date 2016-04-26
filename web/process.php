@@ -92,8 +92,9 @@ if (count($files) > 1) {
 	if (!$image) die ("<br><br><br><center><b>Please check the file submitted, the format is invalid.</b></center>");
 	
 	// Check width(700->2028px) and height(420->1229px)
-	$dimensions = checkDimensions($image, $minwidth, $maxwidth, $minheight, $maxheight);
+	$dimensions = array(imagesx($image),imagesy($image));
 	
+	if ($dimensions[0] < $minwidth || $dimensions[0] > $maxwidth || $dimensions[1] < $minheight || $dimensions[1] > $maxheight) {
 	//  Resize if needed
 	if ($dimensions[0] < $maxwidth)
 	$textimage = resizePng($textimage, $dimensions[0], $dimensions[1]);
@@ -114,9 +115,8 @@ if (count($files) > 1) {
 	// Stuff with content
 	$zip->addFromString($names[$index], $i);
 	}
-	
-
-	
+	}
+		
 	// Close and send to users
 	$zip->close();
 	header('Content-Type: application/zip');
