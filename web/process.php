@@ -27,7 +27,7 @@ $dimensions = checkDimensions($image, $minwidth, $maxwidth, $minheight, $maxheig
 
 // Flip image if required (horizontal)
 if ($flip)
-	$image = flipImage($image, $dimensions[0], $dimensions[1], FALSE, TRUE);
+	$image = flipImage($image, $dimensions[0], $dimensions[1], false, true);
 
 //  Resize if needed
 if ($dimensions[3])
