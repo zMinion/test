@@ -1,5 +1,6 @@
 {
   "require" : {
+  "php": "^7.0.5",
   "ext-gd": "*"
   },
   "require-dev": {
