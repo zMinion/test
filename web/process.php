@@ -69,7 +69,7 @@ if (isset($_POST['text'])) {
 		$departament = filter_var($_POST['departament'], FILTER_SANITIZE_NUMBER_INT);
 	
 	$names = $_FILES['files']['name'];	
-	$textimage = createText($text, $color, $font, $fontsize, $maxwidth, $maxheight);
+	$imagetextgenerated = createText($text, $color, $font, $fontsize, $maxwidth, $maxheight);
 	
 
 if (count($files) > 1) {
@@ -82,6 +82,8 @@ if (count($files) > 1) {
 	foreach($files as $index => $file) {
 	// Read file
 	$image = imagecreatefromjpeg($files[$index]);
+	// Protect original text generated
+	$textimage = $imagetextgenerated; 
 	
 	if (!$image) die ("<br><br><br><center><b>Please check the file submitted, the format is invalid.</b></center>");
 	
@@ -106,7 +108,7 @@ if (count($files) > 1) {
 	// Compress image 98/100
 	imagejpeg($image, null, 98);
 	imagedestroy($textimage);
-	imagedestroy ($image);
+	imagedestroy($image);
 	$i = ob_get_clean();
 	
 	// Stuff with content
