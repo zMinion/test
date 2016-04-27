@@ -59,7 +59,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.3.3",	
         "ext-gd": "*"
     },
     "platform-dev": []
