@@ -4,11 +4,13 @@
 function checkDimensions($image, $minwidth, $maxwidth, $minheight, $maxheight) {
 	$width = imagesx($image);
 	$height = imagesy($image);
-	$resize = false;
+	$resize = 0;
 	if ($width < $minwidth || $width > $maxwidth || $height < $minheight || $height > $maxheight)
 		handleError(1);
-	if ((($width >= $minwidth) && ($width < $maxwidth)) || (($height >= $minheight) && ($height < $maxheight)))
-		$resize = true;
+
+	if (($width >= $maxwidth && $width < $maxwidth) or ($height >= $maxheight && $height < $maxheight))
+		$resize = 1;
+
 	return array($width, $height, $resize);
 }
 
