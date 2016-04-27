@@ -20,17 +20,17 @@ $logo = imagecreatefrompng($logo);
 
 // Read file
 $image = imagecreatefromjpeg($file);
-if (!$image) die ("<br><br><br><center><b>Please check the file submitted, the format is invalid.</b></center>");
+if (!$image) handleError(2);
 
 // Check width(700->2028px) and height(420->1229px)
- $dimensions = checkDimensions($image, $minwidth, $maxwidth, $minheight, $maxheight);
+$dimensions = checkDimensions($image, $minwidth, $maxwidth, $minheight, $maxheight);
 
 // Flip image if required (horizontal)
 if ($flip)
-	$image = flipImage($image, $dimensions[0], $dimensions[1], false, true);
+	$image = flipImage($image, $dimensions[0], $dimensions[1], FALSE, TRUE);
 
 //  Resize if needed
-if (($dimensions[0] < $maxwidth) || ($dimensions[1] < $maxheight))
+if ($dimensions[3])
 	$logo = resizePng($logo, $dimensions[0], $dimensions[1]);
 
 // Combine image with logo
@@ -54,10 +54,6 @@ header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 imagejpeg($image, null, 98);
 imagedestroy($image);
 }
-
-
-
-
 
 if (isset($_POST['text'])) {
 	
@@ -83,19 +79,16 @@ if (count($files) > 1) {
 	foreach($files as $index => $file) {
 	// Read file
 	$image = imagecreatefromjpeg($files[$index]);
+	if (!$image) handleError(2);
+
 	// Protect original text generated
 	$textimage = $imagetextgenerated; 
 	
-	if (!$image) die ("<br><br><br><center><b>Please check the file submitted, the format is invalid.</b></center>");
-	
 	// Check width(700->2028px) and height(420->1229px)
-	$dimensions = array(imagesx($image),imagesy($image));
+	$dimensions = checkDimensions($image, $minwidth, $maxwidth, $minheight, $maxheight);
 	
-	if ($dimensions[0] < $minwidth || $dimensions[0] > $maxwidth || $dimensions[1] < $minheight || $dimensions[1] > $maxheight) { 
-		$zip->addFile('./img/picture-error.jpg', 'Error - ' . $names[$index]);
-	} else {
 	//  Resize if needed
-	if (($dimensions[0] < $maxwidth) || ($dimensions[1] < $maxheight))
+	if ($dimensions[3])
 		$textimage = resizePng($textimage, $dimensions[0], $dimensions[1]);
 	
 	// Combine image with logo
@@ -113,7 +106,6 @@ if (count($files) > 1) {
 	// Stuff with content
 	$zip->addFromString($names[$index], $i);
 	}
-	}
 		
 	// Close and send to users
 	$zip->close();
@@ -125,13 +117,13 @@ if (count($files) > 1) {
 }
 else {
 		$image = imagecreatefromjpeg($files[0]);
-		if (!$image) die ("<br><br><br><center><b>Please check the file submitted, the format is invalid.</b></center>");
+		if (!$image) handleError(2);
 		
 		// Check width(700->2028px) and height(420->1229px)
 		$dimensions = checkDimensions($image, $minwidth, $maxwidth, $minheight, $maxheight);
 
 		//  Resize if needed
-		if (($dimensions[0] < $maxwidth) || ($dimensions[1] < $maxheight))
+		if ($dimensions[3])
 			$textimage = resizePng($textimage, $dimensions[0], $dimensions[1]);
 		
 		// Combine image with logo

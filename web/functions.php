@@ -4,9 +4,12 @@
 function checkDimensions($image, $minwidth, $maxwidth, $minheight, $maxheight) {
 	$width = imagesx($image);
 	$height = imagesy($image);
+	$resize = FALSE;
 	if ($width < $minwidth || $width > $maxwidth || $height < $minheight || $height > $maxheight)
-		die("Eroare dimensiuni");
-	return array($width, $height);
+		handleError(1);
+	if (($width => $minwidth && $width < $maxwidth) || ($height => $minheight || $height < $maxheight))
+		$resize = TRUE;
+	return array($width, $height, $resize);
 }
 
 // Flip la fundal
@@ -122,7 +125,18 @@ function createText($text, $color, $font, $fontsize, $maxwidth, $maxheight){
 
 	return $copyright;
 }
-// display errors
+
+// Error handler
+function handleError($id) {
+	$link = "http://$_SERVER[HTTP_HOST]?id=$id";
+	header('Location: '.$link);
+	die();
+}
+/**
+* 1 - Image dimensions
+* 2 - Invalid image uploaded
+* display errors
+*/
 function showError($id) {
 	
 	switch ($id) {
