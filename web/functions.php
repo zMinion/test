@@ -128,7 +128,7 @@ function createText($text, $color, $font, $fontsize, $maxwidth, $maxheight){
 
 // Error handler
 function handleError($id) {
-	$link = "http://$_SERVER[HTTP_HOST]?id=$id";
+	$link = "http://$_SERVER[HTTP_HOST]error.php?id=$id";
 	header('Location: '.$link);
 	die();
 }
@@ -141,8 +141,8 @@ function showError($id) {
 	
 	switch ($id) {
 		case "1":
-        $title ="1";
-		$text ="1";
+        $title ="Image dimensions";
+		$text ="Please check image dimensions! <b>Dimensions: min-700x420px / max-2048x1229px <br>Ratio 5:3 <br>Edit this image in Photoshop and try again!";
         break;
 		case "2":
         $title ="2";
