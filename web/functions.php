@@ -7,7 +7,7 @@ function checkDimensions($image, $minwidth, $maxwidth, $minheight, $maxheight) {
 	$resize = FALSE;
 	if ($width < $minwidth || $width > $maxwidth || $height < $minheight || $height > $maxheight)
 		handleError(1);
-	if (($width => $minwidth && $width < $maxwidth) || ($height => $minheight || $height < $maxheight))
+	if (($width >= $minwidth && $width < $maxwidth) || ($height >= $minheight || $height < $maxheight))
 		$resize = TRUE;
 	return array($width, $height, $resize);
 }
