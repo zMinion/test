@@ -128,7 +128,7 @@ function createText($text, $color, $font, $fontsize, $maxwidth, $maxheight){
 
 // Error handler
 function handleError($id) {
-	header('Location: http://' . $_SERVER[HTTP_HOST] . 'error.php?id=' . $id);
+	header('Location: http://' . $_SERVER[HTTP_HOST] . '/error.php?id=' . $id);
 	die();
 }
 /**
