@@ -50,8 +50,8 @@ header("Content-Disposition: attachment; filename=" . $name);
 header('Content-Transfer-Encoding: binary');
 header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 
-// Compress image 97/100
-imagejpeg($image, null, 97);
+// Compress image 98/100
+imagejpeg($image, null, 98);
 }
 
 
@@ -93,18 +93,18 @@ if (count($files) > 1) {
 	} else {
 	//  Resize if needed
 	if (($dimensions[0] < $maxwidth) || ($dimensions[1] < $maxheight))
-		$textimage2 = resizePng($textimage, $dimensions[0], $dimensions[1]);
+		$textimage = resizePng($textimage, $dimensions[0], $dimensions[1]);
 	
 	// Combine image with logo
-	imagecopy($image, $textimage2, 0, 0, 0, 0, $dimensions[0], $dimensions[1]);
+	imagecopy($image, $textimage, 0, 0, 0, 0, $dimensions[0], $dimensions[1]);
 
 	// Save stats in database
 	if ($image)
 		saveStats($departament, 0, 0, 0, 1, $color);
 
 	ob_start(); 
-	// Compress image 97/100
-	imagejpeg($image, null, 97);
+	// Compress image 98/100
+	imagejpeg($image, null, 98);
 	$i = ob_get_clean();
 	
 	// Stuff with content
@@ -145,8 +145,8 @@ else {
 		header('Content-Transfer-Encoding: binary');
 		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 		
-		// Compress image 97/100
-		imagejpeg($image, null, 97);			
+		// Compress image 98/100
+		imagejpeg($image, null, 98);			
 	}
 	
 }
