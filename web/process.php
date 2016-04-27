@@ -105,6 +105,8 @@ if (count($files) > 1) {
 	ob_start(); 
 	// Compress image 98/100
 	imagejpeg($image, null, 98);
+	imagedestroy($textimage);
+	imagedestroy ($image);
 	$i = ob_get_clean();
 	
 	// Stuff with content
