@@ -139,7 +139,8 @@ function showError($id) {
 		$text ="3";
         break;
 		default:
-        echo "zero";
+        $title ="Invalid error id";
+		$text ="An error (from the Latin error, meaning "wandering") is an action which is inaccurate or incorrect. In some usages, an error is synonymous with a mistake (for instance, a cook who misses a step from a recipe might describe it as either an error or a mistake), though in technical contexts the two are often distinguished.";
 	}	
 
 	return array($title,$text);
