@@ -1,11 +1,19 @@
+<?php
+
+include functions.php
+$id = 0;
+
+if (isset($_GET['id']))
+	$id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
+
+$error = showError($id);
+?>
 <html>
 <head>
     <title>DealFactory - Errors</title>
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/theme-bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/style-simple.css">
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -29,9 +37,9 @@
                                         
                                         <div class="col-md-10 text-center col-md-offset-1">
                                             <div class="panel panel-default text-center">
-                                                <div class="panel-heading">head</div>
+                                                <div class="panel-heading"><?php print $error[0]; ?></div>
                                                 <div class="panel-body">
-                                                    body
+                                                <?php print $error[1]; ?>
                                                 </div>
 
                                             </div>
@@ -47,4 +55,3 @@
     </div>
 
 </body></html>
-

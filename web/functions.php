@@ -122,4 +122,26 @@ function createText($text, $color, $font, $fontsize, $maxwidth, $maxheight){
 
 	return $copyright;
 }
+// display errors
+function showError($id) {
+	
+	switch ($id) {
+		case "1":
+        $title ="1";
+		$text ="1";
+        break;
+		case "2":
+        $title ="2";
+		$text ="2";
+        break;
+		case "3":
+        $title ="3";
+		$text ="3";
+        break;
+		default:
+        echo "zero";
+	}	
+
+	return array($title,$text);
+}
 ?>
