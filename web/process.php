@@ -93,10 +93,10 @@ if (count($files) > 1) {
 	} else {
 	//  Resize if needed
 	if (($dimensions[0] < $maxwidth) || ($dimensions[1] < $maxheight))
-		$textimage = resizePng($textimage, $dimensions[0], $dimensions[1]);
+		$textimage2 = resizePng($textimage, $dimensions[0], $dimensions[1]);
 	
 	// Combine image with logo
-	imagecopy($image, $textimage, 0, 0, 0, 0, $dimensions[0], $dimensions[1]);
+	imagecopy($image, $textimage2, 0, 0, 0, 0, $dimensions[0], $dimensions[1]);
 
 	// Save stats in database
 	if ($image)
@@ -105,7 +105,6 @@ if (count($files) > 1) {
 	ob_start(); 
 	// Compress image 97/100
 	imagejpeg($image, null, 97);
-	imagedestroy($image); 
 	$i = ob_get_clean();
 	
 	// Stuff with content
