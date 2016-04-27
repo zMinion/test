@@ -52,6 +52,7 @@ header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 
 // Compress image 98/100
 imagejpeg($image, null, 98);
+imagedestroy($image);
 }
 
 
@@ -107,10 +108,9 @@ if (count($files) > 1) {
 	ob_start(); 
 	// Compress image 98/100
 	imagejpeg($image, null, 98);
-	imagedestroy($textimage);
-	imagedestroy($image);
 	$i = ob_get_clean();
-	
+	imagedestroy($textimage);
+	imagedestroy($image);	
 	// Stuff with content
 	$zip->addFromString($names[$index], $i);
 	}
@@ -136,7 +136,7 @@ else {
 			$textimage = resizePng($textimage, $dimensions[0], $dimensions[1]);
 		
 		// Combine image with logo
-		imagecopy($image, $textimage, 0, 0, 0, 0, $dimensions[0], $dimensions[1]);
+		imagecopy($image, $imagetextgenerated, 0, 0, 0, 0, $dimensions[0], $dimensions[1]);
 		
 		// Save stats in database
 		if ($image)
@@ -150,7 +150,8 @@ else {
 		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 		
 		// Compress image 98/100
-		imagejpeg($image, null, 98);			
+		imagejpeg($image, null, 98);
+		imagedestroy($image);		
 	}
 	
 }
