@@ -30,7 +30,7 @@ if ($flip)
 	$image = flipImage($image, $dimensions[0], $dimensions[1], false, true);
 
 //  Resize if needed
-if ($dimensions[3])
+if ($dimensions[2])
 	$logo = resizePng($logo, $dimensions[0], $dimensions[1]);
 
 // Combine image with logo
@@ -88,7 +88,7 @@ if (count($files) > 1) {
 	$dimensions = checkDimensions($image, $minwidth, $maxwidth, $minheight, $maxheight);
 	
 	//  Resize if needed
-	if ($dimensions[3])
+	if ($dimensions[2])
 		$textimage = resizePng($textimage, $dimensions[0], $dimensions[1]);
 	
 	// Combine image with logo
@@ -123,7 +123,7 @@ else {
 		$dimensions = checkDimensions($image, $minwidth, $maxwidth, $minheight, $maxheight);
 
 		//  Resize if needed
-		if ($dimensions[3])
+		if ($dimensions[2])
 			$textimage = resizePng($textimage, $dimensions[0], $dimensions[1]);
 		
 		// Combine image with logo
