@@ -12,7 +12,7 @@
     <div class="row">
             <div class="col-md-5 col-md-offset-2">
                 <div class="well-lg">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-danger">
                         <div class="panel-heading">
                             <h3 class="panel-title">Error</h3>
                         </div>
@@ -22,15 +22,12 @@
                                     <div id="logo-errors" class="center-block" style="display:none"></div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="input-group-lg">
-x x x
-                                            </div>
                                         </div>
                                     </div>
                                     <br>
                                     <div class="row">
                                         
-                                        <div class="col-md-8 text-center col-md-offset-2">
+                                        <div class="col-md-10 text-center col-md-offset-1">
                                             <div class="panel panel-default text-center">
                                                 <div class="panel-heading">head</div>
                                                 <div class="panel-body">
