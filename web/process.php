@@ -69,7 +69,7 @@ if (isset($_POST['text'])) {
 		$departament = filter_var($_POST['departament'], FILTER_SANITIZE_NUMBER_INT);
 	
 	$names = $_FILES['files']['name'];	
-	$textimage = createText($copyright, $text, $color, $font, $fontsize, $maxwidth, $maxheight);
+	$textimage = createText($text, $color, $font, $fontsize, $maxwidth, $maxheight);
 	
 
 if (count($files) > 1) {
@@ -89,11 +89,11 @@ if (count($files) > 1) {
 	$dimensions = array(imagesx($image),imagesy($image));
 	
 	if ($dimensions[0] < $minwidth || $dimensions[0] > $maxwidth || $dimensions[1] < $minheight || $dimensions[1] > $maxheight) { 
-	//skip if image is small
+		$zip->addFile('./img/picture-error.jpg', 'Error - ' . $names[$index]);
 	} else {
 	//  Resize if needed
 	if ($dimensions[0] < $maxwidth)
-	$textimage = resizePng($textimage, $dimensions[0], $dimensions[1]);
+		$textimage = resizePng($textimage, $dimensions[0], $dimensions[1]);
 	
 	// Combine image with logo
 	imagecopy($image, $textimage, 0, 0, 0, 0, $dimensions[0], $dimensions[1]);

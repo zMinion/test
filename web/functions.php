@@ -101,7 +101,7 @@ function showStats() {
 }
 
 // create text
-function createText($copyright, $text, $color, $font, $fontsize, $maxwidth, $maxheight){
+function createText($text, $color, $font, $fontsize, $maxwidth, $maxheight){
 	$dims = imagettfbbox($fontsize, 0, $font, $text);
 	$bbox_height = $dims[3] - $dims[5]; 
 	$bbox_width = $dims[4] - $dims[0]; 
