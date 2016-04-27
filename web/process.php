@@ -109,7 +109,6 @@ if (count($files) > 1) {
 	// Compress image 98/100
 	imagejpeg($image, null, 98);
 	$i = ob_get_clean();
-	imagedestroy($textimage);
 	imagedestroy($image);	
 	// Stuff with content
 	$zip->addFromString($names[$index], $i);
