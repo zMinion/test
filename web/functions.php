@@ -172,7 +172,9 @@ function JPGoptimiser($JPGfile, &$error = '')
 }
 */
 
-// Error handler
+/**
+* @param integer $id
+*/
 function handleError($id) {
 	header('Location: http://' . $_SERVER[HTTP_HOST] . '/error.php?id=' . $id);
 	die();
