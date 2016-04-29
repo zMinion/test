@@ -3,7 +3,7 @@
 $source 	= 0; // default MPI
 $flip 		= 0; // default Flip off
 
-$font 		= 'tahomabd.ttf';
+$font 		= '/fonts/tahomabd.ttf';
 $fontsize 	= 26;
 
 $minwidth 	= 700;
