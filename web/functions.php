@@ -127,6 +127,21 @@ function createText($text, $color, $font, $fontsize, $maxwidth, $maxheight){
 
 	return $copyright;
 }
+function imageSave($image, $imagepng, $width, $height, $quality, $name, $single) {
+	// Combine images
+	imagecopy($image, $imagepng, 0, 0, 0, 0, $width, $height);
+	if ($single) {
+	// Force download single image
+	header("Content-Type: image/jpeg");
+	// NOTE: Possible header injection via $basename
+	header("Content-Disposition: attachment; filename=" . $name);
+	header('Content-Transfer-Encoding: binary');
+	header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+	}
+	// Compress image
+	imagejpeg($image, null, $quality);
+	imagedestroy($image);
+}
 
 // Error handler
 function handleError($id) {
@@ -146,8 +161,8 @@ function showError($id) {
 		$text ="Please check image dimensions! <br>Dimensions: min-700x420px / max-2048x1229px Ratio 5:3 <br><b>Edit this image in Photoshop and try again!</b>";
         break;
 		case "2":
-        $title ="2";
-		$text ="2";
+        $title ="Unknown or invalid JPEG format";
+		$text ="Please open the image in Photoshop and save it again as JPEG with ICC profile: sRGB";
         break;
 		case "3":
         $title ="3";

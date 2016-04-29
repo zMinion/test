@@ -33,9 +33,6 @@ if ($flip)
 if ($dimensions[2])
 	$logo = resizePng($logo, $dimensions[0], $dimensions[1]);
 
-// Combine image with logo
-imagecopy($image, $logo, 0, 0, 0, 0, $dimensions[0], $dimensions[1]);
-
 // Save stats in database
 if ($image)
 	saveStats($departament, $chooselogo, $source, $flip);
@@ -43,16 +40,9 @@ if ($image)
 // Rename the file
 $name = renameImage($_FILES['file']['name'], $source);
 
-// Force download image
-header("Content-Type: image/jpeg");
-// NOTE: Possible header injection via $basename
-header("Content-Disposition: attachment; filename=" . $name);
-header('Content-Transfer-Encoding: binary');
-header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+// Image download
+imageSave($image, $logo, $dimensions[0], $dimensions[1], $quality, $name, 1);
 
-// Compress image 98/100
-imagejpeg($image, null, 98);
-imagedestroy($image);
 }
 
 if (isset($_POST['text'])) {
@@ -126,23 +116,12 @@ else {
 		if ($dimensions[2])
 			$textimage = resizePng($textimage, $dimensions[0], $dimensions[1]);
 		
-		// Combine image with logo
-		imagecopy($image, $imagetextgenerated, 0, 0, 0, 0, $dimensions[0], $dimensions[1]);
-		
 		// Save stats in database
 		if ($image)
 			saveStats($departament, 0, 0, 0, 1, $color);
 		
-		// Force download image
-		header("Content-Type: image/jpeg");
-		// NOTE: Possible header injection via $basename
-		header("Content-Disposition: attachment; filename=" . $names[0]);
-		header('Content-Transfer-Encoding: binary');
-		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-		
-		// Compress image 98/100
-		imagejpeg($image, null, 98);
-		imagedestroy($image);		
+		// Image download
+		imageSave($image, $imagetextgenerated, $dimensions[0], $dimensions[1], $quality, $names[0], 1);	
 	}
 	
 }
