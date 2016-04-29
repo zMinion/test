@@ -9,5 +9,3 @@ if($imgurl){
         header('Location: '.$imgurl);
 		die();
 }
- 
-?> 
