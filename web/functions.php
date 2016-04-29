@@ -127,7 +127,7 @@ function createText($text, $color, $font, $fontsize, $maxwidth, $maxheight){
 
 	return $copyright;
 }
-function imageSave($image, $imagepng, $width, $height, $quality, $name, $single) {
+function imageSave($image, $imagepng, $width, $height, $quality, $name = null, $single = null) {
 	// Combine images
 	imagecopy($image, $imagepng, 0, 0, 0, 0, $width, $height);
 	if ($single) {

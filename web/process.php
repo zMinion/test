@@ -81,18 +81,15 @@ if (count($files) > 1) {
 	if ($dimensions[2])
 		$textimage = resizePng($textimage, $dimensions[0], $dimensions[1]);
 	
-	// Combine image with logo
-	imagecopy($image, $textimage, 0, 0, 0, 0, $dimensions[0], $dimensions[1]);
-
 	// Save stats in database
 	if ($image)
 		saveStats($departament, 0, 0, 0, 1, $color);
 
 	ob_start(); 
-	// Compress image 98/100
-	imagejpeg($image, null, 98);
+	// Image save
+	imageSave($image, $textimage, $dimensions[0], $dimensions[1], $quality);
 	$i = ob_get_clean();
-	imagedestroy($image);	
+
 	// Stuff with content
 	$zip->addFromString($names[$index], $i);
 	}
