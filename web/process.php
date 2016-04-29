@@ -85,16 +85,16 @@ if (count($files) > 1) {
 	if ($image)
 		saveStats($departament, 0, 0, 0, 1, $color);
 
-	ob_start(); 
 	// Image save
+	ob_start(); 
 	imageSave($image, $textimage, $dimensions[0], $dimensions[1], $quality);
 	$i = ob_get_clean();
 
-	// Stuff with content
+	// Add image in archive
 	$zip->addFromString($names[$index], $i);
 	}
 		
-	// Close and send to users
+	// Close and download
 	$zip->close();
 	header('Content-Type: application/zip');
 	header('Content-Disposition: attachment; filename="images.zip"');

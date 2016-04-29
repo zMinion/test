@@ -86,6 +86,7 @@ if ($copyright)
 mysqli_close($mysqli);
 }
 
+// Show total images edited
 function showStats() {
 	$url = getenv('JAWSDB_URL');
 	$dbparts = parse_url($url);
@@ -127,6 +128,8 @@ function createText($text, $color, $font, $fontsize, $maxwidth, $maxheight){
 
 	return $copyright;
 }
+
+// Combine images and prepare for download
 function imageSave($image, $imagepng, $width, $height, $quality, $name = null, $single = null) {
 	// Combine images
 	imagecopy($image, $imagepng, 0, 0, 0, 0, $width, $height);
@@ -142,6 +145,32 @@ function imageSave($image, $imagepng, $width, $height, $quality, $name = null, $
 	imagejpeg($image, null, $quality);
 	imagedestroy($image);
 }
+
+/**
+ * added for later edits
+function JPGoptimiser($JPGfile, &$error = '')
+{
+	$ch = curl_init('http://jpgoptimiser.com/optimise');
+	curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+	curl_setopt($ch, CURLOPT_FAILONERROR, 1);
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, array('input' => '@'.$JPGfile));
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	$jpg = curl_exec($ch);
+	$status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+	if ($status !== 200) {
+		$error = 'jpgoptimiser.com request failed: HTTP code ' . $status;
+		return false;
+	}
+	$curl_error = curl_error($ch);
+	if (!empty($curl_error)) {
+		$error = 'jpgoptimiser.com request failed: CURL error ' . $curl_error;
+		return false;
+	}
+	curl_close($ch);
+	return $jpg;
+}
+*/
 
 // Error handler
 function handleError($id) {
