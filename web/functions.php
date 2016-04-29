@@ -204,4 +204,3 @@ function showError($id) {
 
 	return array($title,$text);
 }
-?>

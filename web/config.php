@@ -13,4 +13,3 @@ $maxheight 	= 1229;
 
 $quality = 98; // JPEG quality 90-99 recommended
 
-?>
