@@ -19,8 +19,8 @@ function flipImage($image, $width, $height, $vertical, $horizontal) {
 	if (!$vertical && !$horizontal) return $image;
 	$flipped = imagecreatetruecolor($width, $height);
 	if ($vertical) {
-	  for ($y=0; $y<$height; $y++) {
-		imagecopy($flipped, $image, 0, $y, 0, $height - $y - 1, $width, 1);
+	  for ($heighty=0; $heighty<$height; $heighty++) {
+		imagecopy($flipped, $image, 0, $heighty, 0, $height - $heighty - 1, $width, 1);
 	  }
 	}
 	if ($horizontal) {
@@ -28,8 +28,8 @@ function flipImage($image, $width, $height, $vertical, $horizontal) {
 		$image = $flipped;
 		$flipped = imagecreatetruecolor($width, $height);
 	  }
-	  for ($x=0; $x<$width; $x++) {
-		imagecopy($flipped, $image, $x, 0, $width - $x - 1, 0, 1, $height);
+	  for ($widthx=0; $widthx<$width; $widthx++) {
+		imagecopy($flipped, $image, $widthx, 0, $width - $widthx - 1, 0, 1, $height);
 	  }
 	}
 	return $flipped;
@@ -122,9 +122,9 @@ function createText($text, $color, $font, $fontsize, $maxwidth, $maxheight){
 	else
 		$fontcolor = imagecolorallocate($copyright, 0, 0, 0);
 	imagefilledrectangle($copyright, 0, 0, $maxwidth, $maxheight, $bgcolor);
-	$x = $maxwidth - $bbox_width - 90; 
-	$y = $maxheight - $bbox_height + $fontsize - 50;
-	imagettftext($copyright, $fontsize, 0, $x, $y , $fontcolor, $font, chr(169) . ' ' . $text);
+	$widthx = $maxwidth - $bbox_width - 90; 
+	$heighty = $maxheight - $bbox_height + $fontsize - 50;
+	imagettftext($copyright, $fontsize, 0, $widthx, $heighty , $fontcolor, $font, chr(169) . ' ' . $text);
 
 	return $copyright;
 }
@@ -180,6 +180,7 @@ function handleError($id) {
 	die();
 }
 /**
+* @param integer $id
 * 1 - Image dimensions
 * 2 - Invalid image uploaded
 * display errors
