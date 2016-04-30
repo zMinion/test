@@ -22,7 +22,7 @@
 
 <body>
     <div class="buttons-left">
-    <div style="height:0px;overflow:hidden"><form action="/process-mockup.php" id="formMockup" name="formMockup" method="post" enctype="multipart/form-data"><input type="file" id="fileMockup" name="fileMockup" /></form></div>
+    <div style="height:0px;overflow:hidden"><form action="/process.php" id="formMockup" name="formMockup" method="post" enctype="multipart/form-data"><input type="hidden" id='source' name='source' value="2"><input type="file" id="fileMockup" name="fileMockup" /></form></div>
     <a id="rules" class="btn btn-block btn-info" href="#design-rules">Design Rules</a>
     <a id="arguments" class="btn btn-block btn-info" href="#design-arguments">Design Arguments</a>
     <a id="mockup" class="btn btn-block btn-info" href="#" onclick="chooseMockup();">Design Mockup</a>    

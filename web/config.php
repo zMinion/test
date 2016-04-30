@@ -11,5 +11,5 @@ $maxwidth 	= 2048;
 $minheight 	= 420;
 $maxheight 	= 1229;
 
-$quality = 98; // JPEG quality 90-99 recommended
+$quality 	= 98; // JPEG quality 90-99 recommended
 

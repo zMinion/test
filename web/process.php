@@ -45,6 +45,24 @@ imageSave($image, $logo, $dimensions[0], $dimensions[1], $quality, $name, 1);
 
 }
 
+if (isset($_FILES['fileMockup']['tmp_name'])) {
+	$file = $_FILES['fileMockup']['tmp_name'];
+	if (isset($_POST['source']))
+		$source = filter_var($_POST['source'], FILTER_SANITIZE_NUMBER_INT);	
+	$banner = dirname(__FILE__) . '/mockup/ocasion.jpg';
+	$mockup = dirname(__FILE__) . '/mockup/ocasion.png';
+	$image = imagecreatefromjpeg($file);
+	$banner = imagecreatefromjpeg($banner);
+	$mockup = imagecreatefrompng($mockup);
+	
+	// Rename the file
+	$name = renameImage($_FILES['fileMockup']['name'], $source);
+	
+	// Image download
+	combineMockup($image, $banner, $mockup, $quality, $name);
+}
+
+
 if (isset($_POST['text'])) {
 	
 		$text = $_POST["text"];

@@ -48,13 +48,18 @@ function resizePng($logo, $dst_width, $dst_height) {
 	return $newlogo;
 }
 
-// Nume Poze: 0 - logo / 1 - getty 
+// Nume Poze: 0 - logo / 1 - getty / 2 - mockup
 function renameImage($name, $source=0) {
-	if ($source) 
+	switch ($source) {
+		case "1":
 		$name =  preg_replace('/.jpeg|,|.jpg/i', '', $name) . '_badged.jpg';
-	else
-		$name =  preg_replace('/.jpeg|,|.jpg/i', '', $name) . '_logo.jpg';	
-		
+        break;
+		case "2":
+		$nume =  preg_replace('/.jpeg|,|.jpg/i', '', $name) . '_mockup.jpg';
+        break;
+		default:
+		$name =  preg_replace('/.jpeg|,|.jpg/i', '', $name) . '_logo.jpg';
+	}	
 	return $name;
 }
 
@@ -129,10 +134,28 @@ function createText($text, $color, $font, $fontsize, $maxwidth, $maxheight){
 	return $copyright;
 }
 
+// Combine image for mockup
+function combineMockup($image, $banner, $mockup, $quality, $name) {
+	imagecopymerge($banner, $image, 8, 181, 0, 0, 1680, 450, 100);
+	$image = imagecreatetruecolor(1700, 954);
+	imagecopyresampled($image, $banner, 0, 0, 0, 0, 1700, 954, 1700, 954);
+	imagecopyresampled($image, $mockup, 0, 0, 0, 0, 1700, 954, 1700, 954);
+	// Force download single image
+	header("Content-Type: image/jpeg");
+	// NOTE: Possible header injection via $basename
+	header("Content-Disposition: attachment; filename=" . $name);
+	header('Content-Transfer-Encoding: binary');
+	header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+	// Compress image
+	imagejpeg($image, null, $quality);
+	imagedestroy($image);
+}
+
 // Combine images and prepare for download
-function imageSave($image, $imagepng, $width, $height, $quality, $name = null, $single = null) {
+function imageSave($image, $imagepng, $width, $height, $quality, $name, $single = null) {
 	// Combine images
 	imagecopy($image, $imagepng, 0, 0, 0, 0, $width, $height);
+		
 	if ($single) {
 	// Force download single image
 	header("Content-Type: image/jpeg");
