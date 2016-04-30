@@ -55,7 +55,7 @@ function renameImage($name, $source=0) {
 		$name =  preg_replace('/.jpeg|,|.jpg/i', '', $name) . '_badged.jpg';
         break;
 		case "2":
-		$nume =  preg_replace('/.jpeg|,|.jpg/i', '', $name) . '_mockup.jpg';
+		$name =  preg_replace('/.jpeg|,|.jpg/i', '', $name) . '_mockup.jpg';
         break;
 		default:
 		$name =  preg_replace('/.jpeg|,|.jpg/i', '', $name) . '_logo.jpg';
@@ -152,7 +152,7 @@ function combineMockup($image, $banner, $mockup, $quality, $name) {
 }
 
 // Combine images and prepare for download
-function imageSave($image, $imagepng, $width, $height, $quality, $name, $single = null) {
+function imageSave($image, $imagepng, $width, $height, $quality, $name=null, $single = null) {
 	// Combine images
 	imagecopy($image, $imagepng, 0, 0, 0, 0, $width, $height);
 		
