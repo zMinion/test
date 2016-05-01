@@ -195,8 +195,8 @@ function imageSave($image, $imagepng, $width, $height, $quality, $name = null, $
  */
 function handleError($errorid)
 {
-	header('Location: http://' . $domainurl . '/error.php?id=' . $errorid);
-	die();
+	header('Location: http://www.dfdesign.xyz/error.php?id=' . $errorid);
+	exit();
 }
 /**
  * @param integer $errorid
