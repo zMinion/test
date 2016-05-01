@@ -191,22 +191,22 @@ function imageSave($image, $imagepng, $width, $height, $quality, $name = null, $
  }
  */
 /**
- * @param integer $id
+ * @param integer $errorid
  */
-function handleError($id)
+function handleError($errorid)
 {
-	header('Location: http://' . $_SERVER[HTTP_HOST] . '/error.php?id=' . $id);
+	header('Location: http://' . $_SERVER[HTTP_HOST] . '/error.php?id=' . $errorid);
 	die();
 }
 /**
- * @param integer $id
+ * @param integer $errorid
  * 1 - Image dimensions
  * 2 - Invalid image uploaded
  * display errors
  */
-function showError($id)
+function showError($errorid)
 {
-	switch ($id)
+	switch ($errorid)
 	{
 	case "1":
 		$title = "Image dimensions";
