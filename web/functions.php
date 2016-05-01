@@ -87,7 +87,7 @@ function saveStats($departament, $logo = null, $source = 0, $flip = 0, $copyrigh
 	$mysqli = new mysqli($hostname, $username, $password, $database);
 	// Check connection
 	if ($mysqli->connect_error)
-		die("Connection failed: " . $mysqli->connect_error);
+		handleError(3);
 	if ($logo) $mysqli->query("INSERT INTO images (date, departament, logo, source, flip) VALUES (CURDATE(), '" . mysqli_real_escape_string($mysqli, $departament) . "', '" . mysqli_real_escape_string($mysqli, $logo) . "', '" . mysqli_real_escape_string($mysqli, $source) . "', '" . mysqli_real_escape_string($mysqli, $flip) . "')");
 	if ($copyright) $mysqli->query("INSERT INTO images (date, departament, copyright, color) VALUES (CURDATE(), '" . mysqli_real_escape_string($mysqli, $departament) . "', '" . mysqli_real_escape_string($mysqli, $copyright) . "', '" . mysqli_real_escape_string($mysqli, $color) . "')");
 	mysqli_close($mysqli);
@@ -105,7 +105,7 @@ function showStats()
 	$mysqli = new mysqli($hostname, $username, $password, $database);
 	// Check connection
 	if ($mysqli->connect_error)
-		die("Connection failed: " . $mysqli->connect_error);
+		handleError(3);
 	$maximages = $mysqli->query("SELECT max(id) as id FROM images")->fetch_object()->id;
 	$mysqli->close();
 	return $maximages;
@@ -195,13 +195,14 @@ function imageSave($image, $imagepng, $width, $height, $quality, $name = null, $
  */
 function handleError($errorid)
 {
-	header('Location: http://' . $_SERVER[HTTP_HOST] . '/error.php?id=' . $errorid);
+	header('Location: http://' . $domainurl . '/error.php?id=' . $errorid);
 	die();
 }
 /**
  * @param integer $errorid
  * 1 - Image dimensions
  * 2 - Invalid image uploaded
+ * 3 - MySQL connection failed
  * display errors
  */
 function showError($errorid)
@@ -217,8 +218,8 @@ function showError($errorid)
 		$text = "Please open the image in Photoshop and save it again as JPEG with ICC profile: sRGB";
 		break;
 	case "3":
-		$title = "3";
-		$text = "3";
+		$title = "Database connection failed";
+		$text = "Pleaser try again, it is possible that the database is overloaded or otherwise not running properly.";
 		break;
 	default:
 		$title = "Incorrect error id";
