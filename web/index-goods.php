@@ -4,7 +4,6 @@
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/theme-bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/dropdown.css">
     <link rel="stylesheet" type="text/css" href="/css/checkbox.css">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap-toggle.min.css">
     <link rel="stylesheet" type="text/css" href="/css/fileinput.min.css">
@@ -12,7 +11,7 @@
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/js/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.ddslick.min.js"></script>
     <script type="text/javascript" src="/js/fileinput.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap-toggle.min.js"></script>
 
@@ -57,16 +56,7 @@
                                             <div class="panel panel-default text-center">
                                                 <div class="panel-heading">Select a logo</div>
                                                 <div class="panel-body">
-                                                    <select id="chooselogo" name="chooselogo">
-                                                        <option value="105" data-image="/logo/105.jpg">UK/IE - Video available - left</option>
-                                                        <option value="107" data-image="/logo/107.jpg" selected>FR - Video disponible - left</option>
-                                                        <option value="109" data-image="/logo/109.jpg">Black Friday</option>
-                                                        <option value="101" data-image="/logo/101.jpg">Price drop FR</option>
-                                                        <option value="102" data-image="/logo/102.jpg">Price drop UK</option>
-                                                        <option value="103" data-image="/logo/103.jpg">Price drop NL/BE</option>
-                                                        <option value="106" data-image="/logo/106.jpg">UK/IE - Video available - right</option>
-                                                        <option value="108" data-image="/logo/108.jpg">FR - Video disponible - right</option>
-                                                    </select>
+													<div id="picklogo"></div>
                                                 </div>
 
                                             </div>
@@ -91,7 +81,67 @@
     </div>
 
     <script type="text/javascript" src="/js/scripts.js"></script>
-		
+<script> 
+var logos = [
+    {
+        text: "UK/IE - Video available",
+        value: 105,
+        selected: false,
+        description: "Position: left",
+        imageSrc: "/logo/105.jpg"
+    },
+    {
+        text: "FR - Video disponible",
+        value: 107,
+        selected: false,
+        description: "Position: left",
+        imageSrc: "/logo/107.jpg"
+    },
+    {
+        text: "UK/IE - Video available",
+        value: 106,
+        selected: false,
+        description: "Position: right",
+        imageSrc: "/logo/106.jpg"
+    },
+    {
+        text: "FR - Video disponible",
+        value: 108,
+        selected: false,
+        description: "Position: right",
+        imageSrc: "/logo/108.jpg"
+    },
+    {
+        text: "Price drop",
+        value: 101,
+        selected: false,
+        description: "FR",
+        imageSrc: "/logo/101.jpg"
+    },
+    {
+        text: "Price drop",
+        value: 102,
+        selected: false,
+        description: "UK",
+        imageSrc: "/logo/102.jpg"
+    },
+    {
+        text: "Price drop",
+        value: 103,
+        selected: false,
+        description: "NL/BE",
+        imageSrc: "/logo/103.jpg"
+    }	
+];
+
+$('#picklogo').ddslick({
+    data: logos,
+    width: "100%",
+	height: 450,
+    imagePosition: "left",
+    selectText: "Select your logo"
+}); 	
+</script>		
 <div id=footer><div class="label"> Total images: <div id="number1" class="count">
 <?php
 require "functions.php";
