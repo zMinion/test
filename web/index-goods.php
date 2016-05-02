@@ -86,7 +86,7 @@ var logos = [
     {
         text: "UK/IE - Video available",
         value: 105,
-        selected: false,
+        selected: true,
         description: "Position: left",
         imageSrc: "/logo/105.jpg"
     },
