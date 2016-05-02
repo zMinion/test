@@ -92,5 +92,10 @@
 
     <script type="text/javascript" src="/js/scripts.js"></script>
 		
-<div id=footer><div class="label"> Total images: <div id="number1" class="count"><?php require "functions.php"; print showStats(); ?></div> </div></div></body></html>
+<div id=footer><div class="label"> Total images: <div id="number1" class="count">
+<?php
+require "functions.php";
+print showStats();
+?>
+</div> </div></div></body></html>
 

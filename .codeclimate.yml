@@ -1,0 +1,19 @@
+engines:
+  phpmd:
+    enabled: true
+    config:
+      file_extensions: 
+        - php
+  phpcodesniffer:
+    enabled: true
+    checks:
+      Generic Files LineLength TooLong:
+        enabled: false
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - php
+ratings:
+  paths:
+  - "**.php"

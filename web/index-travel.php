@@ -4,17 +4,16 @@
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/theme-bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/dropdown.css">
     <link rel="stylesheet" type="text/css" href="/css/checkbox.css">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap-toggle.min.css">
     <link rel="stylesheet" type="text/css" href="/css/fileinput.min.css">
     <link rel="stylesheet" type="text/css" href="/css/style-simple.css">
     <link rel="stylesheet" type="text/css" href="/css/animate.min.css">
 
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.ddslick.min.js" ></script>
     <script type="text/javascript" src="/js/bootstrap.min.js" ></script>
-    <script type="text/javascript" src="/js/jquery.easing.min.js"></script>
     <script type="text/javascript" src="/js/fileinput.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap-toggle.min.js"></script>
     <script type="text/javascript" src="/js/animatedModal.min.js"></script>
@@ -93,32 +92,8 @@
                                         <div class="col-md-8 text-center">
 											<div class="panel panel-default text-center">
 												<div class="panel-heading">Select a logo</div>
-												<div class="panel-body">											
-											<select id="chooselogo" name="chooselogo">
-                                                <option value="02.png" data-description="<span><span style='font-weight:bold;'>bold</span> <span style='color:red;'>red</span> normal</span>" value="02.png" data-image="/logo/02.jpg" selected>TMC - Best of Groupon</option>
-                                                <option value="01.png" data-image="/logo/01.jpg">xFly - Booking</option>
-                                                <option value="21.png" data-image="/logo/21.jpg">AIRC</option>
-                                                <option value="24.png" data-image="/logo/24.jpg">CenterParcs</option>                                                
-                                                <option value="22.png" data-image="/logo/22.jpg">Citotel</option>
-                                                <option value="23.png" data-image="/logo/23.jpg">Camping No 1</option>                                                
-                                                <option value="03.png" data-image="/logo/03.jpg">SEH - Inter Hotel</option>
-                                                <option value="04.png" data-image="/logo/04.jpg">SEH - Qualys Hotel</option>
-                                                <option value="05.png" data-image="/logo/05.jpg">SEH - Relais du Silence</option>
-                                                <option value="06.png" data-image="/logo/06.jpg">Balladins Hotel</option>
-                                                <option value="17.png" data-image="/logo/17.jpg">Telethon</option>
-                                                <option value="07.png" data-image="/logo/07.jpg">P'tit Dej Hotel</option>
-                                                <option value="08.png" data-image="/logo/08.jpg">MSC Cruise</option>
-                                                <option value="13.png" data-image="/logo/13.jpg">Local Star</option>
-                                                <option value="19.png" data-image="/logo/19.jpg">Best of DACH</option>                                                
-                                                <option value="15.png" data-image="/logo/15.jpg">Relais Heritage</option>
-                                                <option value="20.png" data-image="/logo/20.jpg">BedyCasa</option>
-                                                <option value="16.png" data-image="/logo/16.jpg">Renouveau Vacances</option>
-                                                <option value="09.png" data-image="/logo/09.jpg">Escale Oceania</option>
-                                                <option value="14.png" data-image="/logo/14.jpg">Costa Cruises</option>
-                                                <option value="10.png" data-image="/logo/10.jpg">Phantasia LAND</option>
-                                                <option value="11.png" data-image="/logo/11.jpg">PlopsaCoo</option>
-                                                <option value="12.png" data-image="/logo/12.jpg">Easter logo</option>
-                                            </select>
+												<div class="panel-body">
+												<div id="picklogo"></div>
 												</div>										
 
 											</div>											
@@ -249,7 +224,175 @@
         $("#fileMockup").change(function() {
     		$("form#formMockup").submit();
 	});
- 	
+var logos = [
+    {
+        text: "Best of Groupon",
+        value: 02,
+        selected: true,
+        description: "All TMC deals except for DE, PL, UAE",		
+        imageSrc: "/logo/02.jpg"
+    },
+    {
+        text: "Booking",
+        value: 01,
+        selected: false,
+        description: "xFly",
+        imageSrc: "/logo/01.jpg"
+    },
+    {
+        text: "Inter Hotel",
+        value: 03,
+        selected: false,
+        description: "SEH",
+        imageSrc: "/logo/03.jpg"
+    },
+    {
+        text: "Qualys Hotel",
+        value: 04,
+        selected: false,
+        description: "SEH",
+        imageSrc: "/logo/04.jpg"
+    },
+    {
+        text: "Relais du Silence",
+        value: 05,
+        selected: false,
+        description: "SEH",
+        imageSrc: "/logo/05.jpg"
+    },
+    {
+        text: "Balladins Hotel",
+        value: 06,
+        selected: false,
+        description: " ",
+        imageSrc: "/logo/06.jpg"
+    },
+    {
+        text: "P'tit Dej Hotel",
+        value: 07,
+        selected: false,
+        description: " ",
+        imageSrc: "/logo/07.jpg"
+    },
+    {
+        text: "MSC Cruise",
+        value: 08,
+        selected: false,
+        description: " ",
+        imageSrc: "/logo/08.jpg"
+    },
+    {
+        text: "Escale Oceania",
+        value: 09,
+        selected: false,
+        description: " ",
+        imageSrc: "/logo/09.jpg"
+    },
+    {
+        text: "Phantasia LAND",
+        value: 10,
+        selected: false,
+        description: " ",
+        imageSrc: "/logo/10.jpg"
+    },
+    {
+        text: "PlopsaCoo",
+        value: 11,
+        selected: false,
+        description: " ",
+        imageSrc: "/logo/11.jpg"
+    },
+    {
+        text: "Local Star",
+        value: 13,
+        selected: false,
+        description: " ",
+        imageSrc: "/logo/13.jpg"
+    },
+    {
+        text: "Costa Cruises",
+        value: 14,
+        selected: false,
+        description: " ",
+        imageSrc: "/logo/14.jpg"
+    },
+    {
+        text: "Relais Heritage",
+        value: 15,
+        selected: false,
+        description: " ",
+        imageSrc: "/logo/15.jpg"
+    },
+    {
+        text: "Renouveau Vacances",
+        value: 16,
+        selected: false,
+        description: " ",
+        imageSrc: "/logo/16.jpg"
+    },
+    {
+        text: "Telethon",
+        value: 17,
+        selected: false,
+        description: " ",
+        imageSrc: "/logo/17.jpg"
+    },
+    {
+        text: "Best of DACH",
+        value: 19,
+        selected: false,
+        description: " ",
+        imageSrc: "/logo/19.jpg"
+    },
+    {
+        text: "BedyCasa",
+        value: 20,
+        selected: false,
+        description: " ",
+        imageSrc: "/logo/20.jpg"
+    },
+    {
+        text: "AIRC",
+        value: 21,
+        selected: false,
+        description: " ",
+        imageSrc: "/logo/21.jpg"
+    },
+    {
+        text: "Citotel",
+        value: 22,
+        selected: false,
+        description: " ",
+        imageSrc: "/logo/22.jpg"
+    },
+    {
+        text: "Camping No 1",
+        value: 23,
+        selected: false,
+        description: " ",
+        imageSrc: "/logo/23.jpg"
+    },
+    {
+        text: "CenterParcs",
+        value: 24,
+        selected: false,
+        description: " ",
+        imageSrc: "/logo/24.jpg"
+    }	
+];
+
+$('#picklogo').ddslick({
+    data: logos,
+    width: "100%",
+	height: 450,
+    imagePosition: "left",
+    selectText: "Select your logo"
+}); 	
 </script>
 
-<div id=footer><div class="label"> Total images: <div id="number1" class="count"><?php require "functions.php"; print showStats(); ?></div> </div></div></body></html>
+<div id=footer><div class="label"> Total images: <div id="number1" class="count">
+<?php
+require "functions.php";
+print showStats();
+?>
+</div> </div></div></body></html>
