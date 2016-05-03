@@ -100,66 +100,66 @@ var logosg = [
 var logost = [
     {
         text: "Best of Groupon",
-        value: 02,
+        value: 2,
         selected: true,
         description: "All TMC deals except for DE, PL, UAE",		
-        imageSrc: "/logo/02.jpg"
+        imageSrc: "/logo/2.jpg"
     },
     {
         text: "Booking",
-        value: 01,
+        value: 1,
         selected: false,
         description: "xFly",
-        imageSrc: "/logo/01.jpg"
+        imageSrc: "/logo/1.jpg"
     },
     {
         text: "Inter Hotel",
-        value: 03,
+        value: 3,
         selected: false,
         description: "SEH",
-        imageSrc: "/logo/03.jpg"
+        imageSrc: "/logo/3.jpg"
     },
     {
         text: "Qualys Hotel",
-        value: 04,
+        value: 4,
         selected: false,
         description: "SEH",
-        imageSrc: "/logo/04.jpg"
+        imageSrc: "/logo/4.jpg"
     },
     {
         text: "Relais du Silence",
-        value: 05,
+        value: 5,
         selected: false,
         description: "SEH",
-        imageSrc: "/logo/05.jpg"
+        imageSrc: "/logo/5.jpg"
     },
     {
         text: "Balladins Hotel",
-        value: 06,
+        value: 6,
         selected: false,
         description: " ",
-        imageSrc: "/logo/06.jpg"
+        imageSrc: "/logo/6.jpg"
     },
     {
         text: "P'tit Dej Hotel",
-        value: 07,
+        value: 7,
         selected: false,
         description: " ",
-        imageSrc: "/logo/07.jpg"
+        imageSrc: "/logo/7.jpg"
     },
     {
         text: "MSC Cruise",
-        value: 08,
+        value: 8,
         selected: false,
         description: " ",
-        imageSrc: "/logo/08.jpg"
+        imageSrc: "/logo/8.jpg"
     },
     {
         text: "Escale Oceania",
-        value: 09,
+        value: 9,
         selected: false,
         description: " ",
-        imageSrc: "/logo/09.jpg"
+        imageSrc: "/logo/9.jpg"
     },
     {
         text: "Phantasia LAND",
