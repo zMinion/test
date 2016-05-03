@@ -61,7 +61,7 @@
 
                                             </div>
                                         </div>
-                                    </div>
+										</div>
                                     <div class="row">
                                         <div class="col-md-4 col-md-offset-4">
                                             <input type="hidden" name="departament" value="2">
@@ -82,60 +82,8 @@
 
     <script type="text/javascript" src="/js/scripts.js"></script>
 <script> 
-var logos = [
-    {
-        text: "UK/IE - Video available",
-        value: 105,
-        selected: true,
-        description: "Position: left",
-        imageSrc: "/logo/105.jpg"
-    },
-    {
-        text: "FR - Video disponible",
-        value: 107,
-        selected: false,
-        description: "Position: left",
-        imageSrc: "/logo/107.jpg"
-    },
-    {
-        text: "UK/IE - Video available",
-        value: 106,
-        selected: false,
-        description: "Position: right",
-        imageSrc: "/logo/106.jpg"
-    },
-    {
-        text: "FR - Video disponible",
-        value: 108,
-        selected: false,
-        description: "Position: right",
-        imageSrc: "/logo/108.jpg"
-    },
-    {
-        text: "Price drop",
-        value: 101,
-        selected: false,
-        description: "FR",
-        imageSrc: "/logo/101.jpg"
-    },
-    {
-        text: "Price drop",
-        value: 102,
-        selected: false,
-        description: "UK",
-        imageSrc: "/logo/102.jpg"
-    },
-    {
-        text: "Price drop",
-        value: 103,
-        selected: false,
-        description: "NL/BE",
-        imageSrc: "/logo/103.jpg"
-    }	
-];
-
 $('#picklogo').ddslick({
-    data: logos,
+    data: logosg,
     width: "100%",
 	height: 450,
     imagePosition: "left",

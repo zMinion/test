@@ -4,35 +4,25 @@ function checkDimensions($image, $minwidth, $maxwidth, $minheight, $maxheight)
 {
     $width  = imagesx($image);
     $height = imagesy($image);
-    $resize = 0;
+    $resize = false;
     if ($width < $minwidth || $width > $maxwidth || $height < $minheight || $height > $maxheight) {
         handleError(1);
     }
     if (($width !== $maxwidth) && ($height !== $maxheight)) {
-        $resize = 1;
+        $resize = true;
     }
     return array(
-	$width,
-        $height,
-        $resize
+    $width,
+    $height,
+    $resize
     );
 }
 // Flip la fundal
-function flipImage($image, $width, $height, $vertical, $horizontal)
+function flipImage($image, $width, $height)
 {
-    if (!$vertical && !$horizontal) {
-        return $image;
-    }
     $flipped = imagecreatetruecolor($width, $height);
-    if ($vertical) {
-        for ($heighty = 0; $heighty < $height; $heighty++) {
-            imagecopy($flipped, $image, 0, $heighty, 0, $height - $heighty - 1, $width, 1);
-        }
-    }
-    if ($horizontal) {
-        for ($widthx = 0; $widthx < $width; $widthx++) {
-            imagecopy($flipped, $image, $widthx, 0, $width - $widthx - 1, 0, 1, $height);
-        }
+    for ($widthx = 0; $widthx < $width; $widthx++) {
+        imagecopy($flipped, $image, $widthx, 0, $width - $widthx - 1, 0, 1, $height);
     }
     return $flipped;
 }
