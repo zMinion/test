@@ -205,7 +205,25 @@
             </div>
 
 <script type="text/javascript" src="/js/scripts.js"></script>
-<script> 
+<script>
+$("#rules").animatedModal({
+    modalTarget:'design-rules',
+    animatedIn:'zoomIn',
+    animatedOut:'bounceOutDown',
+    color:'#3498db',
+});
+$("#arguments").animatedModal({
+    modalTarget:'design-arguments',
+    animatedIn:'zoomIn',
+    animatedOut:'bounceOutDown',
+    color:'#3498db',
+}); 
+function chooseMockup() {
+    $("#fileMockup").click();
+}
+$("#fileMockup").change(function() {
+    $("form#formMockup").submit();
+});
 $('#picklogo').ddslick({
     data: logost,
     width: "100%",
