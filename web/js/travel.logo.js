@@ -45,7 +45,7 @@ var logos = [
         text: "P'tit Dej Hotel",
         value: 7,
         selected: false,
-        description: "All deals from P’tit Dej-HOTEL brand part of SEH (Société Européenne d’Hôtellerie)",l
+        description: "All deals from P’tit Dej-HOTEL brand part of SEH (Société Européenne d’Hôtellerie)",
         imageSrc: "/logo/7.jpg"
     },
     {
