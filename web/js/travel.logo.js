@@ -3,35 +3,35 @@ var logos = [
         text: "Best of Groupon",
         value: 2,
         selected: true,
-        description: "All accounts with Top Merchant Campaign <br>Exceptions: DE, PL, UAE",		
+        description: "All accounts marked with Top Merchant Campaign badge<br>Exceptions: DE, PL, UAE",		
         imageSrc: "/logo/2.jpg"
     },
     {
         text: "Booking",
         value: 1,
         selected: false,
-        description: "xFly",
+        description: "All deals with Payment Terms: Switchfly EMEA Payment Terms",
         imageSrc: "/logo/1.jpg"
     },
     {
         text: "Inter Hotel",
         value: 3,
         selected: false,
-        description: "SEH",
+        description: "All deals from INTER-HOTEL brand part of SEH (Société Européenne d’Hôtellerie)",
         imageSrc: "/logo/3.jpg"
     },
     {
         text: "Qualys Hotel",
         value: 4,
         selected: false,
-        description: "SEH",
+        description: "All deals from QUALYS-HOTEL brand part of SEH (Société Européenne d’Hôtellerie)",
         imageSrc: "/logo/4.jpg"
     },
     {
         text: "Relais du Silence",
         value: 5,
         selected: false,
-        description: "SEH",
+        description: "All deals from Relais du Silence brand part of SEH (Société Européenne d’Hôtellerie)",
         imageSrc: "/logo/5.jpg"
     },
     {
@@ -45,7 +45,7 @@ var logos = [
         text: "P'tit Dej Hotel",
         value: 7,
         selected: false,
-        description: " ",
+        description: "All deals from P’tit Dej-HOTEL brand part of SEH (Société Européenne d’Hôtellerie)",l
         imageSrc: "/logo/7.jpg"
     },
     {
