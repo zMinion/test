@@ -17,21 +17,21 @@ var logos = [
         text: "Inter Hotel",
         value: 3,
         selected: false,
-        description: "All deals from INTER-HOTEL brand part of SEH (Société Européenne d’Hôtellerie)",
+        description: "All deals from INTER-HOTEL brand part of SEH (Societe Europeenne dHotellerie)",
         imageSrc: "/logo/3.jpg"
     },
     {
         text: "Qualys Hotel",
         value: 4,
         selected: false,
-        description: "All deals from QUALYS-HOTEL brand part of SEH (Société Européenne d’Hôtellerie)",
+        description: "All deals from QUALYS-HOTEL brand part of SEH (Societe Europeenne dHotellerie)",
         imageSrc: "/logo/4.jpg"
     },
     {
         text: "Relais du Silence",
         value: 5,
         selected: false,
-        description: "All deals from Relais du Silence brand part of SEH (Société Européenne d’Hôtellerie)",
+        description: "All deals from Relais du Silence brand part of SEH (Societe Europeenne dHotellerie)",
         imageSrc: "/logo/5.jpg"
     },
     {
