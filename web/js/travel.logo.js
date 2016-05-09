@@ -3,7 +3,7 @@ var logos = [
         text: "Best of Groupon",
         value: 2,
         selected: true,
-        description: "All TMC deals except for DE, PL, UAE",		
+        description: "All accounts with Top Merchant Campaign <br>Exceptions: DE, PL, UAE",		
         imageSrc: "/logo/2.jpg"
     },
     {
