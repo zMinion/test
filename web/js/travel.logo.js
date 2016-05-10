@@ -80,7 +80,7 @@ var logos = [
         text: "Local Star",
         value: 13,
         selected: false,
-        description: " ",
+        description: "Local Stars - are some of the top companies in the area",
         imageSrc: "/logo/13.jpg"
     },
     {
@@ -129,7 +129,7 @@ var logos = [
         text: "AIRC",
         value: 21,
         selected: false,
-        description: " ",
+        description: "A Charity Campaign for Italy deals. ",
         imageSrc: "/logo/21.jpg"
     },
     {
