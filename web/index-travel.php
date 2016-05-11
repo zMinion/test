@@ -36,7 +36,7 @@
         <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
         <div class="close-design-arguments"> <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> </div>
         <div class="modal-content text-center">
-            <iframe src="https://docs.google.com/a/groupon.com/spreadsheets/d/1tB-8IjzN6fGBaerrwK872bkMJN9cZrPMr0Z8BWFUXRs/pubhtml" width="100%px" height="96%px"></iframe>
+            <iframe id="ifrm-design-arguments" name="ifrm-design-arguments" src="" width="100%px" height="96%px"></iframe>
         </div>
     </div>
     <div class="row">
