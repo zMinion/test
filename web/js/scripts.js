@@ -63,10 +63,10 @@ $("#arguments").animatedModal({
     color: '#3498db',
 });
 
-function ifrm-design-rules() {
+function ifrmdesignrules() {
     $('#ifrm-design-rules').prop('src', 'https://drive.google.com/a/groupon.com/file/d/0B7-WQbgD22zCYWxDVmIzdlQ4eTA/preview');
 }
-function ifrm-design-arguments() {
+function ifrmdesignarguments() {
     $('#ifrm-design-arguments').prop('src', 'https://docs.google.com/a/groupon.com/spreadsheets/d/1tB-8IjzN6fGBaerrwK872bkMJN9cZrPMr0Z8BWFUXRs/pubhtml');
 }
 function chooseMockup() {
