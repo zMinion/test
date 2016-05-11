@@ -135,29 +135,7 @@
     </div>
     </form>
     </div>
-    <script type="text/javascript" src="/js/travel.logo.js"></script>
-    <script type="text/javascript" src="/js/scripts.js"></script>
-    <script>
-$("#rules").animatedModal({
-    modalTarget: 'design-rules',
-    animatedIn: 'zoomIn',
-    animatedOut: 'bounceOutDown',
-    color: '#3498db',
-});
-$("#arguments").animatedModal({
-    modalTarget: 'design-arguments',
-    animatedIn: 'zoomIn',
-    animatedOut: 'bounceOutDown',
-    color: '#3498db',
-});
-
-function chooseMockup() {
-    $("#fileMockup").click();
-}
-$("#fileMockup").change(function() {
-    $("form#formMockup").submit();
-});
-    </script>
+    <script type="text/javascript" src="/min/g=jstravel"></script>
     <div id=footer>
         <div class="label"> Total images:
             <div id="number1" class="count">

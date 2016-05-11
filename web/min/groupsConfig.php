@@ -14,4 +14,5 @@
 return array(
      'js' => array('//js/bootstrap.min.js', '//js/jquery.ddslick.min.js', '//js/fileinput.min.js', '//js/bootstrap-toggle.min.js', '//js/animatedModal.min.js', '//js/travel.logo.js', '//js/scripts.js'),
      'css' => array('//css/bootstrap.min.css', '//css/theme-bootstrap.min.css', '//css/bootstrap-toggle.min.css', '//css/fileinput.min.css', '//css/style-simple.css', '//css/animate.min.css'),
+	 'jstravel' => array('//js/travel.logo.js', '//js/scripts.js'),
 );

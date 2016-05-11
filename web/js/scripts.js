@@ -50,3 +50,22 @@ $('#picklogo').ddslick({
     imagePosition: "left",
     selectText: "Select your logo"
 });
+$("#rules").animatedModal({
+    modalTarget: 'design-rules',
+    animatedIn: 'zoomIn',
+    animatedOut: 'bounceOutDown',
+    color: '#3498db',
+});
+$("#arguments").animatedModal({
+    modalTarget: 'design-arguments',
+    animatedIn: 'zoomIn',
+    animatedOut: 'bounceOutDown',
+    color: '#3498db',
+});
+
+function chooseMockup() {
+    $("#fileMockup").click();
+}
+$("#fileMockup").change(function() {
+    $("form#formMockup").submit();
+});
