@@ -62,7 +62,7 @@ $("#arguments").animatedModal({
     animatedOut: 'bounceOutDown',
     color: '#3498db',
 },
-$('#ifrm-design-arguments').prop('src', https://docs.google.com/a/groupon.com/spreadsheets/d/1tB-8IjzN6fGBaerrwK872bkMJN9cZrPMr0Z8BWFUXRs/pubhtml)
+$('#ifrm-design-arguments').prop('src', 'https://docs.google.com/a/groupon.com/spreadsheets/d/1tB-8IjzN6fGBaerrwK872bkMJN9cZrPMr0Z8BWFUXRs/pubhtml')
 );
 
 function chooseMockup() {
