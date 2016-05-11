@@ -5,7 +5,6 @@
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/theme-bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/checkbox.css">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap-toggle.min.css">
     <link rel="stylesheet" type="text/css" href="/css/fileinput.min.css">
     <link rel="stylesheet" type="text/css" href="/css/style-simple.css">
