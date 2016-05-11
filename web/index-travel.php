@@ -24,7 +24,7 @@
             <form action="/process.php" id="formMockup" name="formMockup" method="post" enctype="multipart/form-data">
                 <input type="hidden" id='source' name='source' value="2">
                 <input type="file" id="fileMockup" name="fileMockup" /> </form>
-        </div> <a id="rules" class="btn btn-block btn-info" href="#design-rules">Design Rules</a> <a id="arguments" class="btn btn-block btn-info" href="#design-arguments">Design Arguments</a> <a id="mockup" class="btn btn-block btn-info" href="#" onclick="chooseMockup();">Design Mockup</a> </div>
+        </div> <a id="rules" class="btn btn-block btn-info" href="#design-rules" onclick="ifrm-design-rules();">Design Rules</a> <a id="arguments" class="btn btn-block btn-info" href="#design-arguments" onclick="ifrm-design-arguments();">Design Arguments</a> <a id="mockup" class="btn btn-block btn-info" href="#" onclick="chooseMockup();">Design Mockup</a> </div>
     <div id="design-rules" class="text-center">
         <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
         <div class="close-design-rules"> <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> </div>
