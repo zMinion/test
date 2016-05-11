@@ -10,7 +10,7 @@
 /**
  * Allow use of the Minify URI Builder app. Only set this to true while you need it.
  */
-$min_enableBuilder = false;
+$min_enableBuilder = true;
 
 
 /**
