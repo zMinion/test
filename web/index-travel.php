@@ -3,10 +3,19 @@
 <head>
     <title>DealFactory - Design Tools</title>
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/min/g=css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/theme-bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-toggle.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/fileinput.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style-simple.css">
+    <link rel="stylesheet" type="text/css" href="/css/animate.min.css">
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="/min/g=js"></script>
+    <script type="text/javascript" src="/js/jquery.ddslick.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/fileinput.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap-toggle.min.js"></script>
+    <script type="text/javascript" src="/js/animatedModal.min.js"></script>
 </head>
 
 <body>
@@ -135,7 +144,8 @@
     </div>
     </form>
     </div>
-    <script type="text/javascript" src="/min/g=jstravel"></script>
+    <script type="text/javascript" src="/js/travel.logo.js"></script>
+    <script type="text/javascript" src="/js/scripts.js"></script>
     <div id=footer>
         <div class="label"> Total images:
             <div id="number1" class="count">
