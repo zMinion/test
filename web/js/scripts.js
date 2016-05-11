@@ -55,21 +55,20 @@ $("#rules").animatedModal({
     animatedIn: 'zoomIn',
     animatedOut: 'bounceOutDown',
     color: '#3498db',
-},
-$(document).ready(function(){ $('#ifrm-design-rules').prop('src', 'https://drive.google.com/a/groupon.com/file/d/0B7-WQbgD22zCYWxDVmIzdlQ4eTA/preview') })
-);
+});
 $("#arguments").animatedModal({
     modalTarget: 'design-arguments',
     animatedIn: 'zoomIn',
     animatedOut: 'bounceOutDown',
     color: '#3498db',
-},
-$(document).ready(function(){ $('#ifrm-design-arguments').prop('src', 'https://docs.google.com/a/groupon.com/spreadsheets/d/1tB-8IjzN6fGBaerrwK872bkMJN9cZrPMr0Z8BWFUXRs/pubhtml') })
-);
+});
 
-
-
-
+function ifrm-design-rules() {
+    $('#ifrm-design-rules').prop('src', 'https://drive.google.com/a/groupon.com/file/d/0B7-WQbgD22zCYWxDVmIzdlQ4eTA/preview');
+}
+function ifrm-design-arguments() {
+    $('#ifrm-design-arguments').prop('src', 'https://docs.google.com/a/groupon.com/spreadsheets/d/1tB-8IjzN6fGBaerrwK872bkMJN9cZrPMr0Z8BWFUXRs/pubhtml');
+}
 function chooseMockup() {
     $("#fileMockup").click();
 }
