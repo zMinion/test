@@ -116,7 +116,7 @@ $min_serveOptions['maxAge'] = 1800;
 /**
  * To use CSSmin (Túbal Martín's port of the YUI CSS compressor), uncomment the following line:
  */
-//$min_serveOptions['minifiers']['text/css'] = array('Minify_CSSmin', 'minify');
+$min_serveOptions['minifiers']['text/css'] = array('Minify_CSSmin', 'minify');
 
 
 /**
@@ -134,7 +134,7 @@ $min_serveOptions['maxAge'] = 1800;
  * 
  * // = shortcut for DOCUMENT_ROOT 
  */
-//$min_serveOptions['minApp']['allowDirs'] = array('//js', '//css');
+$min_serveOptions['minApp']['allowDirs'] = array('//js', '//css');
 
 /**
  * Set to true to disable the "f" GET parameter for specifying files.
