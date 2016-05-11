@@ -56,7 +56,7 @@ $("#rules").animatedModal({
     animatedOut: 'bounceOutDown',
     color: '#3498db',
 },
-$('#ifrm-design-rules').prop('src', 'https://drive.google.com/a/groupon.com/file/d/0B7-WQbgD22zCYWxDVmIzdlQ4eTA/preview')
+$('#ifrm-design-rules').attr('src', 'https://drive.google.com/a/groupon.com/file/d/0B7-WQbgD22zCYWxDVmIzdlQ4eTA/preview')
 );
 $("#arguments").animatedModal({
     modalTarget: 'design-arguments',
@@ -64,7 +64,7 @@ $("#arguments").animatedModal({
     animatedOut: 'bounceOutDown',
     color: '#3498db',
 },
-$('#ifrm-design-arguments').prop('src', 'https://docs.google.com/a/groupon.com/spreadsheets/d/1tB-8IjzN6fGBaerrwK872bkMJN9cZrPMr0Z8BWFUXRs/pubhtml')
+$('#ifrm-design-arguments').attr('src', 'https://docs.google.com/a/groupon.com/spreadsheets/d/1tB-8IjzN6fGBaerrwK872bkMJN9cZrPMr0Z8BWFUXRs/pubhtml')
 );
 
 function chooseMockup() {
