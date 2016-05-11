@@ -55,7 +55,9 @@ $("#rules").animatedModal({
     animatedIn: 'zoomIn',
     animatedOut: 'bounceOutDown',
     color: '#3498db',
-});
+},
+$('#ifrm-design-rules').prop('src', 'https://drive.google.com/a/groupon.com/file/d/0B7-WQbgD22zCYWxDVmIzdlQ4eTA/preview')
+);
 $("#arguments").animatedModal({
     modalTarget: 'design-arguments',
     animatedIn: 'zoomIn',

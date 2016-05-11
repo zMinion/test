@@ -29,7 +29,7 @@
         <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
         <div class="close-design-rules"> <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> </div>
         <div class="modal-content text-center">
-            <iframe src="https://drive.google.com/a/groupon.com/file/d/0B7-WQbgD22zCYWxDVmIzdlQ4eTA/preview" width="100%px" height="96%px"></iframe>
+            <iframe id="ifrm-design-rules" name="ifrm-design-rules" src="" width="100%px" height="96%px"></iframe>
         </div>
     </div>
     <div id="design-arguments" class="text-center">
