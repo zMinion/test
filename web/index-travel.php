@@ -9,8 +9,8 @@
     <link rel="stylesheet" type="text/css" href="/css/fileinput.min.css">
     <link rel="stylesheet" type="text/css" href="/css/style-simple.css">
     <link rel="stylesheet" type="text/css" href="/css/animate.min.css">
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/js/jquery.ddslick.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/fileinput.min.js"></script>

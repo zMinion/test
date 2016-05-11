@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/css/bootstrap-toggle.min.css">
     <link rel="stylesheet" type="text/css" href="/css/fileinput.min.css">
     <link rel="stylesheet" type="text/css" href="/css/style-simple.css">
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/jquery.ddslick.min.js"></script>
     <script type="text/javascript" src="/js/fileinput.min.js"></script>
