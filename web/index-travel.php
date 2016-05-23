@@ -150,8 +150,8 @@
         <div class="label"> Total images:
             <div id="number1" class="count">
 				<?php
-					require "functions.php"; 
-					print showStats(); 
+					require "functions.php";
+					print showStats();
 				?> 
             </div>
         </div>
