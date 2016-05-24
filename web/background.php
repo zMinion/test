@@ -4,26 +4,14 @@ $str      = file_get_contents('http://www.bing.com/HPImageArchive.aspx?format=js
 $array    = json_decode($str);
 $imgurl   = 'http://www.bing.com' . $array->{"images"}[0]->{"urlbase"} . '_1920x1080.jpg';
 
-$cache_file = $array->{"images"}[0]->hsh;
-print $cache_file; 
-/*
+$cache_file = '/img/background/' . $array->{"hsh"}[0]->{"urlbase"} . '_1920x1080.jpg'
+
 if(file_exists($cache_file)) {
-	if(time() - filemtime($cache_file) > 86400) {
-		// too old , re-fetch
-		$cache = file_get_contents('YOUR FILE SOURCE');
-		file_put_contents($cache_file, $cache);
-	} else {
-		// cache is still fresh
-	}
+    header('Location: ' . $cache_file);
+    die();		
 } else {
-	// no cache, create one
-	$cache = file_get_contents('YOUR FILE SOURCE');
+	$cache = file_get_contents('$imgurl');
 	file_put_contents($cache_file, $cache);
+    header('Location: ' . $cache_file);
+    die();	
 }
-
-
-if ($imgurl) {
-    header('Location: ' . $imgurl);
-    die();
-}
-*/
