@@ -113,9 +113,9 @@ function createText($text, $color, $font, $fontsize, $maxwidth, $maxheight)
     imagesavealpha($copyright, true);
     // background color
     $bgcolor   = imagecolorallocatealpha($copyright, 255, 255, 255, 127);
-    // font color
+    // font color default
     $fontcolor = imagecolorallocate($copyright, 0, 0, 0);
-    if ($color) {
+    if ($color === 3) {
         $fontcolor = imagecolorallocate($copyright, 255, 255, 255);
     }
     imagefilledrectangle($copyright, 0, 0, $maxwidth, $maxheight, $bgcolor);

@@ -125,20 +125,18 @@
                                                 <div class="panel-body">
 													<div class="btn-group" data-toggle="buttons">
 													<label class="btn btn-default">
-														<input type="radio" name="options" value="1" autocomplete="off" checked>
+														<input type="radio" name="options" value="1" autocomplete="off" selected>
 														<span class="glyphicon glyphicon-ok"></span>
 													</label>
-													
+													<label class="btn btn-grey disabled">
+															<input type="radio" name="options" value="3" autocomplete="off" disabled>
+															<span class="glyphicon glyphicon-ok"></span>
+													</label>
 													<label class="btn btn-black">
 														<input type="radio" name="options" value="2" autocomplete="off">
 														<span class="glyphicon glyphicon-ok"></span>
 													</label>
-													
-													<label class="btn btn-grey disabled">
-														<input type="radio" name="options" value="3" autocomplete="off" >
-														<span class="glyphicon glyphicon-ok"></span>
-													</label>
-												</div>													
+													</div>													
 												</div>
                                             </div>
                                         </div>
