@@ -12,6 +12,5 @@ if(file_exists($cache_file)) {
 } else {
 	$cache = file_get_contents($imgurl);
 	file_put_contents($cache_file, $cache);
-    header('Location: ' . $cache_file);
-    die();	
+    header('Location: ' . $cache_file);	
 }
