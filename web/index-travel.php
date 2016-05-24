@@ -125,11 +125,11 @@
                                                 <div class="panel-body">
 													<div class="btn-group" data-toggle="buttons">
 													<label class="btn btn-default active" style="min-width:50px">
-														<input type="radio" name="options" value="1" autocomplete="off" checked="checked">
+														<input type="radio" name="color" value="1" autocomplete="off" checked="checked">
 														<span class="glyphicon glyphicon-ok"></span>
 													</label>
 													<label class="btn btn-black" style="min-width:50px">
-														<input type="radio" name="options" value="2" autocomplete="off">
+														<input type="radio" name="color" value="2" autocomplete="off">
 														<span class="glyphicon glyphicon-ok"></span>
 													</label>
 													</div>													
