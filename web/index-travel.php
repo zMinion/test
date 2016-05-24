@@ -134,8 +134,8 @@
 														<span class="glyphicon glyphicon-ok"></span>
 													</label>
 													
-													<label class="btn btn-grey">
-														<input type="radio" name="options" value="3" autocomplete="off" disabled>
+													<label class="btn btn-grey disabled">
+														<input type="radio" name="options" value="3" autocomplete="off" >
 														<span class="glyphicon glyphicon-ok"></span>
 													</label>
 												</div>													
