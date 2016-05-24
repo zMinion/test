@@ -16,6 +16,14 @@
     <script type="text/javascript" src="/js/fileinput.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap-toggle.min.js"></script>
     <script type="text/javascript" src="/js/animatedModal.min.js"></script>
+	<style>
+		.btn span.glyphicon {    			
+		opacity: 0;				
+		}
+		.btn.active span.glyphicon {				
+		opacity: 1;				
+		}
+	</style>
 </head>
 
 <body>
@@ -114,7 +122,7 @@
                                         <div class="col-md-4 text-center">
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">Font Color</div>
-                                                <div class="panel-body">
+                                                <div class="panel-body"><div class="btn-group" data-toggle="buttons">
 													<label class="btn btn-primary">
 														<input type="radio" name="options" id="option1" autocomplete="off">
 														<span class="glyphicon glyphicon-ok"></span>
@@ -129,6 +137,7 @@
 														<input type="radio" name="options" id="option2" autocomplete="off">
 														<span class="glyphicon glyphicon-ok"></span>
 													</label>
+												</div>
                                             </div>
                                         </div>
                                         <div class="col-md-8 text-center">
