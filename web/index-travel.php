@@ -115,7 +115,20 @@
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">Font Color</div>
                                                 <div class="panel-body">
-                                                    <input id='color' name='color' type="checkbox" checked value="1" data-toggle="toggle" data-on="<i class='fa fa-play'></i> White" data-off="<i class='fa fa-pause'></i> Black"> </div>
+													<label class="btn btn-primary">
+														<input type="radio" name="options" id="option1" autocomplete="off">
+														<span class="glyphicon glyphicon-ok"></span>
+													</label>
+													
+													<label class="btn btn-info">
+														<input type="radio" name="options" id="option2" autocomplete="off">
+														<span class="glyphicon glyphicon-ok"></span>
+													</label>
+													
+													<label class="btn btn-default">
+														<input type="radio" name="options" id="option2" autocomplete="off">
+														<span class="glyphicon glyphicon-ok"></span>
+													</label>
                                             </div>
                                         </div>
                                         <div class="col-md-8 text-center">
