@@ -10,7 +10,7 @@ if(file_exists($cache_file)) {
     header('Location: ' . $cache_file);
     die();		
 } else {
-	$cache = file_get_contents('$imgurl');
+	$cache = file_get_contents($imgurl);
 	file_put_contents($cache_file, $cache);
     header('Location: ' . $cache_file);
     die();	
