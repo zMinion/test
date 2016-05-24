@@ -124,8 +124,8 @@
                                                 <div class="panel-heading">Font Color</div>
                                                 <div class="panel-body">
 													<div class="btn-group" data-toggle="buttons">
-													<label class="btn btn-default">
-														<input type="radio" name="options" value="1" autocomplete="off" checked="checked">
+													<label class="btn btn-default active">
+														<input type="radio" name="options" value="1" autocomplete="off" autofocus="true" checked="checked">
 														<span class="glyphicon glyphicon-ok"></span>
 													</label>
 													<label class="btn btn-grey disabled">
