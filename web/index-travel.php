@@ -16,14 +16,6 @@
     <script type="text/javascript" src="/js/fileinput.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap-toggle.min.js"></script>
     <script type="text/javascript" src="/js/animatedModal.min.js"></script>
-	<style>
-		.btn span.glyphicon {    			
-		opacity: 0;				
-		}
-		.btn.active span.glyphicon {				
-		opacity: 1;				
-		}
-	</style>
 </head>
 
 <body>
