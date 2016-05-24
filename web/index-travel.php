@@ -122,21 +122,23 @@
                                         <div class="col-md-4 text-center">
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">Font Color</div>
-                                                <div class="panel-body"><div class="btn-group" data-toggle="buttons">
-													<label class="btn btn-primary">
-														<input type="radio" name="options" id="option1" autocomplete="off">
-														<span class="glyphicon glyphicon-ok"></span>
-													</label>
-													
-													<label class="btn btn-info">
-														<input type="radio" name="options" id="option2" autocomplete="off">
-														<span class="glyphicon glyphicon-ok"></span>
-													</label>
-													
+                                                <div class="panel-body">
+													<div class="btn-group" data-toggle="buttons">
 													<label class="btn btn-default">
-														<input type="radio" name="options" id="option2" autocomplete="off">
+														<input type="radio" name="options" value="1" autocomplete="off" checked>
 														<span class="glyphicon glyphicon-ok"></span>
 													</label>
+													
+													<label class="btn btn-black">
+														<input type="radio" name="options" value="2" autocomplete="off">
+														<span class="glyphicon glyphicon-ok"></span>
+													</label>
+													
+													<label class="btn btn-grey">
+														<input type="radio" name="options" value="3" autocomplete="off" disabled>
+														<span class="glyphicon glyphicon-ok"></span>
+													</label>
+												</div>													
 												</div>
                                             </div>
                                         </div>
