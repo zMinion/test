@@ -4,7 +4,7 @@ $str      = file_get_contents('http://www.bing.com/HPImageArchive.aspx?format=js
 $array    = json_decode($str);
 $imgurl   = 'http://www.bing.com' . $array->{"images"}[0]->{"urlbase"} . '_1920x1080.jpg';
 
-$cache_file = 'img/background/' . $array->{"images"}[0]->{"url"};
+$cache_file = 'img/background' . $array->{"images"}[0]->{"url"};
 
 if(file_exists($cache_file)) {
     header('Location: ' . $cache_file);
