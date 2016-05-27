@@ -7,11 +7,23 @@ $storename = md5($array->{"images"}[0]->{"urlbase"});
 
 $cache_file = 'img/background/' . $storename;
 
+function url_get_contents($url) {
+    if (!function_exists('curl_init')){ 
+        die('CURL is not installed!');
+    }
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $output = curl_exec($ch);
+    curl_close($ch);
+    return $output;
+}
+
 if(file_exists($cache_file)) {
     header('Location: ' . $cache_file);
     die();		
 } else {
-	$cache = file_get_contents(urlencode($imgurl));
+	$cache = url_get_contents($imgurl);
 	file_put_contents($cache_file, $cache);
     header('Location: ' . $cache_file);	
 }
